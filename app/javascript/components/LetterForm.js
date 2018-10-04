@@ -1,4 +1,5 @@
 import React from "react"
+import LetterPreview from "./LetterPreview"
 
 class LetterForm extends React.Component {
 	constructor(props) {
@@ -8,10 +9,9 @@ class LetterForm extends React.Component {
 	render() {
 		return (
 			<div>
-
 				<form>
 					<div className="form-group">
-						<label>What do you want to say</label>
+						<label>What do you want to say to {this.props.firstName} {this.props.lastName}?</label>
 						<textarea
 							rows="10"
 							name="message"
@@ -20,6 +20,11 @@ class LetterForm extends React.Component {
 							onChange={this.props.handleInputChange} />
 					</div>
 				</form>
+				<div id="preview">
+					Letter Preview Here
+					<br/>
+					{this.props.message}
+				</div>
 			</div>
 		)
 	}

@@ -45,10 +45,9 @@ class App extends React.Component {
 
 		return (
 			<Component 
-				{...this.props}
+				{...this.state}
 				nextStep={this.nextStep}
-				handleInputChange={this.handleInputChange}
-			/>
+				handleInputChange={this.handleInputChange}/>
 		)
 	}
 
