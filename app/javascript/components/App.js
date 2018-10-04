@@ -44,7 +44,7 @@ class App extends React.Component {
 		let Component = this.steps()[this.state.view]
 
 		return (
-			<Component 
+			<Component
 				{...this.state}
 				nextStep={this.nextStep}
 				handleInputChange={this.handleInputChange}/>
@@ -59,11 +59,11 @@ class App extends React.Component {
 	render() {
 
 		return (
-			<div className="container-fluid">
-				<div className="jumbotron">
-					<h1 className="center">Mailr</h1>
+			<div className="container-fluid home">
+				<h1 className="center">Mailr</h1>
+				<div className="section1">
+					{this.renderView()}
 				</div>
-				{this.renderView()}
 				<br/>
 			</div>
 		)

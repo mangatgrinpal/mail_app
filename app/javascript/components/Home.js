@@ -7,17 +7,17 @@ class Home extends React.Component {
 
 	render () {
 		return (
-			<div className="row center">
-				<div className="col-12">
-					<h2>What would you like to do?</h2>
+			<div className="container">
+				<div className="row">
+					<div className="col-5">
+						<h1>What If I Told You Snail Mail Could Be Now Mail?</h1>
+						<p> Write your letter online, we'll print it, envelope it, and send it for you.</p>
+						<p> Takes less than 3 minutes</p>
+						<p> All you have to do is type</p>
+						<button onClick={this.props.nextStep} id="toAddress" className="btn btn-primary">Write a letter</button>
+					</div>
+					</div>
 				</div>
-				<div className="col-6">
-					<button onClick={this.props.nextStep} id="toAddress" className="btn btn-primary">Write a letter</button>
-				</div>
-				<div className="col-6">
-					<h3>Sign Up/In</h3>
-				</div>
-			</div>
 		)
 	}
 }
