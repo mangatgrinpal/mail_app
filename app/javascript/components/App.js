@@ -2,11 +2,13 @@ import React from "react"
 import Home from "./Home"
 import InfoForm from "./InfoForm"
 import LetterForm from "./LetterForm"
+import LetterReview from "./LetterReview"
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.nextStep = this.nextStep.bind(this)
+		this.cancel = this.cancel.bind(this)
 		this.state = {
 			view: 'home',
 			firstName: '',
@@ -36,7 +38,8 @@ class App extends React.Component {
 		return {
 			"home": Home,
 			"toAddress": InfoForm,
-			"letterField": LetterForm
+			"letterField": LetterForm,
+			"letterReview": LetterReview
 		}
 	}
 
@@ -47,6 +50,7 @@ class App extends React.Component {
 			<Component
 				{...this.state}
 				nextStep={this.nextStep}
+				cancel={this.cancel}
 				handleInputChange={this.handleInputChange}/>
 		)
 	}
@@ -54,6 +58,19 @@ class App extends React.Component {
 	nextStep(e) {
 		e.preventDefault()
 		this.setState({view: e.target.id})
+	}
+
+	cancel(e) {
+		e.preventDefault()
+		this.setState({view: 'home',
+									firstName: '',
+									lastName: '',
+									address1: '',
+									address2: '',
+									city: '',
+									state: '',
+									zip: '',
+									message: ''})
 	}
 
 	render() {

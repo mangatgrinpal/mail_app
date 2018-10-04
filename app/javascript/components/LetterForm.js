@@ -8,7 +8,7 @@ class LetterForm extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="col-md-8 offset-md-2">
 				<form>
 					<div className="form-group">
 						<label>What do you want to say to {this.props.firstName} {this.props.lastName}?</label>
@@ -20,11 +20,11 @@ class LetterForm extends React.Component {
 							onChange={this.props.handleInputChange} />
 					</div>
 				</form>
-				<div id="preview">
-					Letter Preview Here
-					<br/>
-					{this.props.message}
-				</div>
+				<br/>
+				<LetterPreview {...this.props}/>
+				<br/>
+				<button onClick={this.props.cancel} className="btn btn-primary">Cancel</button>
+				<button onClick={this.props.nextStep} id="letterReview" className="btn btn-primary">Review Letter</button>
 			</div>
 		)
 	}

@@ -78,7 +78,7 @@ class InfoForm extends React.Component {
 						</div>
 					</div>
 					<div className="btn-group btn-group-sm">
-						<button className="btn btn-outline-danger">Cancel</button>
+						<button onClick={this.props.cancel} className="btn btn-outline-danger">Cancel</button>
 						<button onClick={this.props.nextStep} id="letterField" className="btn btn-outline-success">Continue</button>
 					</div>
 				</div>
