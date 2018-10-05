@@ -10,7 +10,7 @@ class App extends React.Component {
 		this.nextStep = this.nextStep.bind(this)
 		this.cancel = this.cancel.bind(this)
 		this.state = {
-			view: 'home',
+			view: 1,
 			firstName: '',
 			lastName: '',
 			address1: '',
@@ -36,14 +36,15 @@ class App extends React.Component {
 
 	steps() {
 		return {
-			"home": Home,
-			"toAddress": InfoForm,
-			"letterField": LetterForm,
-			"letterReview": LetterReview
+			1: Home,
+			2: InfoForm,
+			3: LetterForm,
+			4: LetterReview
 		}
 	}
 
 	renderView() {
+
 		let Component = this.steps()[this.state.view]
 
 		return (
@@ -57,12 +58,12 @@ class App extends React.Component {
 
 	nextStep(e) {
 		e.preventDefault()
-		this.setState({view: e.target.id})
+		this.setState({view: this.state.view += 1})
 	}
 
 	cancel(e) {
 		e.preventDefault()
-		this.setState({view: 'home',
+		this.setState({view: 1,
 									firstName: '',
 									lastName: '',
 									address1: '',
@@ -74,7 +75,7 @@ class App extends React.Component {
 	}
 
 	render() {
-
+		
 		return (
 			<div className="container-fluid home">
 				<h1 className="center">Mailr</h1>

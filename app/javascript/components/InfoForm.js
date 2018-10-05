@@ -9,7 +9,9 @@ class InfoForm extends React.Component {
 	render() {
 		return (
 			<form>
-				<div className="col-md-8 offset-md-2">
+				<div className="col-md-8 offset-md-2 send-address">
+					<h3 className="center">Where is this going?</h3>
+					<br/>
 					<div className="form-row">
 						<div className="form-group col-md-6">
 							<label>First Name</label>
@@ -78,8 +80,8 @@ class InfoForm extends React.Component {
 						</div>
 					</div>
 					<div className="btn-group btn-group-sm">
-						<button onClick={this.props.cancel} className="btn btn-outline-danger">Cancel</button>
-						<button onClick={this.props.nextStep} id="letterField" className="btn btn-outline-success">Continue</button>
+						<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
+						<button onClick={this.props.nextStep} id="letterField" className="btn btn-success">Continue</button>
 					</div>
 				</div>
 			</form>

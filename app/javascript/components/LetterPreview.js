@@ -27,7 +27,7 @@ class LetterPreview extends React.Component {
 				<br/>
 				<div className="row justify-content-start">
 					<div className="col-md-12">
-						<p>{this.props.message}</p>
+						{this.props.message}
 					</div>
 				</div>
 

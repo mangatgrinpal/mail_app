@@ -8,10 +8,10 @@ class LetterForm extends React.Component {
 
 	render() {
 		return (
-			<div className="col-md-8 offset-md-2">
+			<div className="col-md-8 offset-md-2 letter-prompt">
 				<form>
 					<div className="form-group">
-						<label>What do you want to say to {this.props.firstName} {this.props.lastName}?</label>
+						<label className="center ">What do you want to say to {this.props.firstName} {this.props.lastName}?</label>
 						<textarea
 							rows="10"
 							name="message"
