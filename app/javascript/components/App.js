@@ -9,6 +9,7 @@ class App extends React.Component {
 		super(props);
 		this.nextStep = this.nextStep.bind(this)
 		this.cancel = this.cancel.bind(this)
+		this.goBack = this.goBack.bind(this)
 		this.state = {
 			view: 1,
 			firstName: '',
@@ -52,6 +53,7 @@ class App extends React.Component {
 				{...this.state}
 				nextStep={this.nextStep}
 				cancel={this.cancel}
+				goBack={this.goBack}
 				handleInputChange={this.handleInputChange}/>
 		)
 	}
@@ -59,6 +61,11 @@ class App extends React.Component {
 	nextStep(e) {
 		e.preventDefault()
 		this.setState({view: this.state.view += 1})
+	}
+
+	goBack(e) {
+		this.setState({view: this.state.view -= 1})
+
 	}
 
 	cancel(e) {

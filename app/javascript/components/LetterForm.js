@@ -24,6 +24,7 @@ class LetterForm extends React.Component {
 				<LetterPreview {...this.props}/>
 				<br/>
 				<button onClick={this.props.cancel} className="btn btn-primary">Cancel</button>
+				<button onClick={this.props.goBack} className="btn btn-primary">Previous Step</button>
 				<button onClick={this.props.nextStep} id="letterReview" className="btn btn-primary">Review Letter</button>
 			</div>
 		)
