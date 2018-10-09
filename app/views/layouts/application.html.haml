@@ -10,7 +10,13 @@
   
 
 	%body{class: controller.controller_name}
-	
+		
+		- flash.each do |name, msg|
+			.alert{ :class => "alert-#{name}" }
+				%button.close{ :data => { :dismiss => "alert"} } x
+				= msg
+
+
 		= javascript_pack_tag 'application'
 
 		= yield

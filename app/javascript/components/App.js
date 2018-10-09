@@ -3,6 +3,7 @@ import Home from "./Home"
 import InfoForm from "./InfoForm"
 import LetterForm from "./LetterForm"
 import LetterReview from "./LetterReview"
+import PaymentPage from "./PaymentPage"
 
 class App extends React.Component {
 	constructor(props) {
@@ -10,6 +11,7 @@ class App extends React.Component {
 		this.nextStep = this.nextStep.bind(this)
 		this.cancel = this.cancel.bind(this)
 		this.goBack = this.goBack.bind(this)
+		this.clearMessage = this.clearMessage.bind(this)
 		this.state = {
 			view: 1,
 			firstName: '',
@@ -40,7 +42,8 @@ class App extends React.Component {
 			1: Home,
 			2: InfoForm,
 			3: LetterForm,
-			4: LetterReview
+			4: LetterReview,
+			5: PaymentPage
 		}
 	}
 
@@ -54,6 +57,7 @@ class App extends React.Component {
 				nextStep={this.nextStep}
 				cancel={this.cancel}
 				goBack={this.goBack}
+				clearMessage={this.clearMessage}
 				handleInputChange={this.handleInputChange}/>
 		)
 	}
@@ -63,22 +67,29 @@ class App extends React.Component {
 		this.setState({view: this.state.view += 1})
 	}
 
-	goBack(e) {
+	goBack() {
 		this.setState({view: this.state.view -= 1})
+	}
 
+	clearMessage() {
+		this.setState({message: ''})
 	}
 
 	cancel(e) {
 		e.preventDefault()
-		this.setState({view: 1,
-									firstName: '',
-									lastName: '',
-									address1: '',
-									address2: '',
-									city: '',
-									state: '',
-									zip: '',
-									message: ''})
+		var answer = confirm("Are you sure?");
+		if (answer == true) {
+			this.setState({view: 1,
+										firstName: '',
+										lastName: '',
+										address1: '',
+										address2: '',
+										city: '',
+										state: '',
+										zip: '',
+										message: ''
+			})
+		}
 	}
 
 	render() {

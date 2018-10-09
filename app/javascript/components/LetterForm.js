@@ -20,12 +20,15 @@ class LetterForm extends React.Component {
 							onChange={this.props.handleInputChange} />
 					</div>
 				</form>
+				<button onClick={this.props.clearMessage} className="btn btn-primary">Clear Message</button>
 				<br/>
 				<LetterPreview {...this.props}/>
 				<br/>
-				<button onClick={this.props.cancel} className="btn btn-primary">Cancel</button>
-				<button onClick={this.props.goBack} className="btn btn-primary">Previous Step</button>
-				<button onClick={this.props.nextStep} id="letterReview" className="btn btn-primary">Review Letter</button>
+				<div className="btn-group btn-group-sm">
+					<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
+					<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
+					<button onClick={this.props.nextStep} className="btn btn-success">Review Letter</button>
+				</div>
 			</div>
 		)
 	}

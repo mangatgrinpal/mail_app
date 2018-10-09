@@ -7,14 +7,19 @@ class LetterReview extends React.Component {
 
 	}
 
+
 	render () {
+		console.log(this.props)
 		return (
 			<div className="col-md-8 offset-md-2">
+				<h2>How does it look? Ready to send it?</h2>
 				<LetterPreview {...this.props}/>
 				<br/>
-				<button onClick={this.props.cancel} className="btn btn-primary">Cancel?</button>
-				<button onClick={this.props.goBack} className="btn btn-primary">Previous Step</button>
-				<button className="btn btn-primary">Continue to Payment</button>
+				<div className="btn-group btn-group-sm">
+					<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
+					<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
+					<button onClick={this.props.nextStep} className="btn btn-success">Continue to Payment</button>
+				</div>
 			</div>
 		)
 	}

@@ -42,7 +42,7 @@ class InfoForm extends React.Component {
 							onChange={this.props.handleInputChange} />
 					</div>
 					<div className="form-group">
-						<label>Address line 2</label>
+						<label>Address line 2 (optional)</label>
 						<input
 							type="text"
 							name="address2"
@@ -81,7 +81,7 @@ class InfoForm extends React.Component {
 					</div>
 					<div className="btn-group btn-group-sm">
 						<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
-						<button onClick={this.props.nextStep} id="letterField" className="btn btn-success">Continue</button>
+						<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
 					</div>
 				</div>
 			</form>
