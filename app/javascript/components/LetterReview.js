@@ -9,7 +9,7 @@ class LetterReview extends React.Component {
 
 
 	render () {
-		console.log(this.props)
+		
 		return (
 			<div className="col-md-8 offset-md-2">
 				<h2>How does it look? Ready to send it?</h2>

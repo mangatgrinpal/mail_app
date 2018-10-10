@@ -1,23 +1,14 @@
 import React from "react"
 
-class InfoForm extends React.Component {
-	constructor(props) {
+class FromAddress extends React.Component {
+	constructor(props){
 		super(props);
-
 	}
 
 	render() {
-		var destination;
-		if (this.props.view === 2) {
-			destination = "Where is this going?"
-		}
-		if (this.props.view === 3) {
-			destination = "What's your address?"
-		}
 		return (
 			<form>
 				<div className="col-md-8 offset-md-2 address-form">
-					<h3>{destination}</h3>
 					<br/>
 					<div className="form-row">
 						<div className="form-group col-md-6">
@@ -26,7 +17,7 @@ class InfoForm extends React.Component {
 								type="text"
 								name="firstName"
 								className="form-control"
-								value={this.props.address.firstName}
+								value={this.props.from.firstName}
 								onChange={this.props.handleInputChange} />
 						</div>
 						<div className="form-group col-md-6">
@@ -35,7 +26,7 @@ class InfoForm extends React.Component {
 								type="text"
 								name="lastName"
 								className="form-control"
-								value={this.props.address.lastName}
+								value={this.props.from.lastName}
 								onChange={this.props.handleInputChange} />
 						</div>
 					</div>
@@ -45,7 +36,7 @@ class InfoForm extends React.Component {
 							type="text"
 							name="address1"
 							className="form-control"
-							value={this.props.address.address1}
+							value={this.props.from.address1}
 							onChange={this.props.handleInputChange} />
 					</div>
 					<div className="form-group">
@@ -54,7 +45,7 @@ class InfoForm extends React.Component {
 							type="text"
 							name="address2"
 							className="form-control"
-							value={this.props.address.address2}
+							value={this.props.from.address2}
 							onChange={this.props.handleInputChange} />
 					</div>
 					<div className="form-row">
@@ -64,7 +55,7 @@ class InfoForm extends React.Component {
 								type="text"
 								name="city"
 								className="form-control"
-								value={this.props.address.city}
+								value={this.props.from.city}
 								onChange={this.props.handleInputChange} />
 						</div>
 						<div className="form-group col-md-3">
@@ -73,7 +64,7 @@ class InfoForm extends React.Component {
 								type="text"
 								name="state"
 								className="form-control"
-								value={this.props.address.state}
+								value={this.props.from.state}
 								onChange={this.props.handleInputChange} />
 						</div>
 						<div className="form-group col-md-3">
@@ -82,13 +73,12 @@ class InfoForm extends React.Component {
 								type="text"
 								name="zip"
 								className="form-control"
-								value={this.props.address.zip}
+								value={this.props.from.zip}
 								onChange={this.props.handleInputChange} />
 						</div>
 					</div>
 					<div className="btn-group btn-group-sm">
 						<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
-						<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
 						<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
 					</div>
 				</div>
@@ -97,4 +87,4 @@ class InfoForm extends React.Component {
 	}
 }
 
-export default InfoForm
+export default FromAddress

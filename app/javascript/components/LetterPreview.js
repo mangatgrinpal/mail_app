@@ -10,17 +10,17 @@ class LetterPreview extends React.Component {
 			<div id="preview" className="container-fluid">
 				<div className="row justify-content-end">
 					<div className="col-md-4 text-right">
-						{this.props.firstName} {this.props.lastName}
+						{this.props.to.firstName} {this.props.to.lastName}
 					</div>
 				</div>
 				<div className="row justify-content-end">
 					<div className="col-md-4 text-right">
-						{this.props.address1} {this.props.address2}
+						{this.props.to.address1} {this.props.to.address2}
 					</div>
 				</div>
 				<div className="row justify-content-end">
 					<div className="col-md-5 text-right">
-						{this.props.city}, {this.props.state} {this.props.zip}
+						{this.props.to.city}, {this.props.to.state} {this.props.to.zip}
 					</div>
 				</div>
 				<br/>

@@ -14,46 +14,78 @@ class App extends React.Component {
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = {
 			view: 1,
-			firstName: '',
-			lastName: '',
-			address1: '',
-			address2: '',
-			city: '',
-			state: '',
-			zip: '',
-			message: ''
+			message: '',
+			to: {
+				firstName: '',
+				lastName: '',
+				address1: '',
+				address2: '',
+				city: '',
+				state: '',
+				zip: ''
+			},
+			from: {
+				firstName: '',
+				lastName: '',
+				address1: '',
+				address2: '',
+				city: '',
+				state: '',
+				zip: ''
+			}
 		}
 		this.handleInputChange = this.handleInputChange.bind(this)
 	}
 
 
-	handleInputChange(message) {
-		const target = message.target;
+	handleInputChange(e) {
+		const target = e.target;
 		const value = target.value;
 		const name = target.name;
 
-		this.setState({
-			[name]: value
-		});
+		let newState = Object.assign({}, this.state)
+
+		if (this.state.view === 2) {
+			newState["to"][name] = value
+			this.setState(newState);
+		}
+		else if (this.state.view === 3) {
+			newState["from"][name] = value
+			this.setState(newState);
+		}
+		else {
+			this.setState({
+				[name]: value
+			});
+		}
 	}
 
 	steps() {
 		return {
 			1: Home,
 			2: InfoForm,
-			3: LetterForm,
-			4: LetterReview,
-			5: PaymentPage
+			3: InfoForm,
+			4: LetterForm,
+			5: LetterReview,
+			6: PaymentPage
 		}
 	}
 
 	renderView() {
-
+		let addressState;
 		let Component = this.steps()[this.state.view]
+
+		if (this.state.view === 2) {
+			addressState = this.state.to
+		}
+		else if (this.state.view === 3) {
+			addressState = this.state.from
+		}
 
 		return (
 			<Component
 				{...this.state}
+				address={addressState}
 				nextStep={this.nextStep}
 				cancel={this.cancel}
 				goBack={this.goBack}
@@ -67,7 +99,8 @@ class App extends React.Component {
 		this.setState({view: this.state.view += 1})
 	}
 
-	goBack() {
+	goBack(e) {
+		e.preventDefault()
 		this.setState({view: this.state.view -= 1})
 	}
 
