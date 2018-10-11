@@ -14,6 +14,7 @@ class InfoForm extends React.Component {
 		if (this.props.view === 3) {
 			destination = "What's your address?"
 		}
+		
 		return (
 			<form>
 				<div className="col-md-8 offset-md-2 address-form">

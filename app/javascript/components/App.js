@@ -13,7 +13,7 @@ class App extends React.Component {
 		this.goBack = this.goBack.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = {
-			view: 1,
+			view: 6,
 			message: '',
 			to: {
 				firstName: '',
@@ -35,6 +35,31 @@ class App extends React.Component {
 			}
 		}
 		this.handleInputChange = this.handleInputChange.bind(this)
+	}
+
+	initialState() {
+		return {
+			view: 1,
+			message: '',
+			to: {
+				firstName: '',
+				lastName: '',
+				address1: '',
+				address2: '',
+				city: '',
+				state: '',
+				zip: ''
+			},
+			from: {
+				firstName: '',
+				lastName: '',
+				address1: '',
+				address2: '',
+				city: '',
+				state: '',
+				zip: ''
+			}
+		}
 	}
 
 
@@ -112,16 +137,7 @@ class App extends React.Component {
 		e.preventDefault()
 		var answer = confirm("Are you sure?");
 		if (answer == true) {
-			this.setState({view: 1,
-										firstName: '',
-										lastName: '',
-										address1: '',
-										address2: '',
-										city: '',
-										state: '',
-										zip: '',
-										message: ''
-			})
+			this.setState(this.initialState)
 		}
 	}
 
