@@ -10,7 +10,7 @@ class LetterPreview extends React.Component {
 			<div id="preview" className="container-fluid">
 				<div className="row justify-content-end">
 					<div className="col-md-4 text-right">
-						{this.props.to.firstName} {this.props.to.lastName}
+						{this.props.to.first_name} {this.props.to.last_name}
 					</div>
 				</div>
 				<div className="row justify-content-end">

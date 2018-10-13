@@ -34,6 +34,8 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'devise'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+# git ignore passwords
+gem 'figaro'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

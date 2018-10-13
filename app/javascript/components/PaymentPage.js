@@ -49,36 +49,34 @@ class PaymentPage extends React.Component {
 		
 	}
 
-	submitPayment() {
-
-		var form = document.getElementById('payment-form');
+	submitPayment(e) {
+		e.preventDefault();
 		var self = this;
-		form.addEventListener('submit', function(event) {
-		  event.preventDefault();
+	  self.state.stripe.createToken(self.state.card).then(function(result) {
+	    if (result.error) {
+	      // Inform the customer that there was an error.
+	      var errorElement = document.getElementById('card-errors');
+	      errorElement.textContent = result.error.message;
+	    } else {
+	      // Send the token to your server.
+	      debugger
+	      $.ajax("/letters", {
+					dataType: "JSON",
+					data: {stripeToken: result.token.id, 
+								receiptEmail: self.props.email, 
+								to_address: self.props.to, 
+								from_address: self.props.from,
+								message: self.props.message},
+					type: "POST",
+					success: ()=> {
+						alert("hit!")
+					}
+				});
+	    }
+	  });
+	  
 
-		  self.state.stripe.createToken(self.state.card).then(function(result) {
-		    if (result.error) {
-		      // Inform the customer that there was an error.
-		      var errorElement = document.getElementById('card-errors');
-		      errorElement.textContent = result.error.message;
-		    } else {
-		      // Send the token to your server.
-		      stripeTokenHandler(result.token);
-		    }
-		  });
-		});
-		function stripeTokenHandler(token) {
-		  // Insert the token ID into the form so it gets submitted to the server
-		  var form = document.getElementById('payment-form');
-		  var hiddenInput = document.createElement('input');
-		  hiddenInput.setAttribute('type', 'hidden');
-		  hiddenInput.setAttribute('name', 'stripeToken');
-		  hiddenInput.setAttribute('value', token.id);
-		  form.appendChild(hiddenInput);
-
-		  // Submit the form
-		  form.submit();
-		}
+	  
 	}
 
 
@@ -90,7 +88,7 @@ class PaymentPage extends React.Component {
 		return (
 
 			<div className="col-md-8 offset-md-2">
-				<form action="/charge" method="post" id="payment-form">
+				<form id="payment-form">
 				  <div className="form-row">
 				  	<div className="col-12">
 					    <label htmlFor="card-element">
@@ -101,6 +99,20 @@ class PaymentPage extends React.Component {
 				    	<div id="card-errors" role="alert"/>
 				    	<br/>
 				  	</div>
+				  </div>
+				  <br/>
+				  <div className="form-group">
+				  	<label>
+			    		<h3>Email (for your receipt)</h3>
+			    	</label>
+			    	<br/>
+			    	<div className="form-group">
+			    	<input id="receipt-email" 
+			    				type="text" 
+			    				name="email"
+			    				className="form-control" 
+			    				value={this.props.email} onChange={this.props.handleInputChange} />
+			    	</div>
 				  </div>
 				  <div className="btn-group btn-group-sm">
 						<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>

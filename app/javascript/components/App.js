@@ -15,9 +15,10 @@ class App extends React.Component {
 		this.state = {
 			view: 6,
 			message: '',
+			email: '',
 			to: {
-				firstName: '',
-				lastName: '',
+				first_name: '',
+				last_name: '',
 				address1: '',
 				address2: '',
 				city: '',
@@ -25,8 +26,8 @@ class App extends React.Component {
 				zip: ''
 			},
 			from: {
-				firstName: '',
-				lastName: '',
+				first_name: '',
+				last_name: '',
 				address1: '',
 				address2: '',
 				city: '',
@@ -41,9 +42,10 @@ class App extends React.Component {
 		return {
 			view: 1,
 			message: '',
+			email: '',
 			to: {
-				firstName: '',
-				lastName: '',
+				first_name: '',
+				last_name: '',
 				address1: '',
 				address2: '',
 				city: '',
@@ -51,8 +53,8 @@ class App extends React.Component {
 				zip: ''
 			},
 			from: {
-				firstName: '',
-				lastName: '',
+				first_name: '',
+				last_name: '',
 				address1: '',
 				address2: '',
 				city: '',

@@ -11,7 +11,7 @@ class LetterForm extends React.Component {
 			<div className="col-md-8 offset-md-2 letter-prompt">
 				<form>
 					<div className="form-group">
-						<label className="center ">What do you want to say to {this.props.to.firstName} {this.props.to.lastName}?</label>
+						<label className="center ">What do you want to say to {this.props.to.first_name} {this.props.to.last_name}?</label>
 						<textarea
 							rows="10"
 							name="message"

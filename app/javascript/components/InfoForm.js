@@ -25,18 +25,18 @@ class InfoForm extends React.Component {
 							<label>First Name</label>
 							<input
 								type="text"
-								name="firstName"
+								name="first_name"
 								className="form-control"
-								value={this.props.address.firstName}
+								value={this.props.address.first_name}
 								onChange={this.props.handleInputChange} />
 						</div>
 						<div className="form-group col-md-6">
 							<label>Last Name</label>
 							<input
 								type="text"
-								name="lastName"
+								name="last_name"
 								className="form-control"
-								value={this.props.address.lastName}
+								value={this.props.address.last_name}
 								onChange={this.props.handleInputChange} />
 						</div>
 					</div>
