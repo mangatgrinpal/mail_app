@@ -4,6 +4,7 @@ import InfoForm from "./InfoForm"
 import LetterForm from "./LetterForm"
 import LetterReview from "./LetterReview"
 import PaymentPage from "./PaymentPage"
+import Confirmation from "./Confirmation"
 
 class App extends React.Component {
 	constructor(props) {
@@ -11,9 +12,11 @@ class App extends React.Component {
 		this.nextStep = this.nextStep.bind(this)
 		this.cancel = this.cancel.bind(this)
 		this.goBack = this.goBack.bind(this)
+		this.goHome = this.goHome.bind(this)
+		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = {
-			view: 6,
+			view: 7,
 			message: '',
 			email: '',
 			to: {
@@ -94,7 +97,8 @@ class App extends React.Component {
 			3: InfoForm,
 			4: LetterForm,
 			5: LetterReview,
-			6: PaymentPage
+			6: PaymentPage,
+			7: Confirmation
 		}
 	}
 
@@ -116,6 +120,8 @@ class App extends React.Component {
 				nextStep={this.nextStep}
 				cancel={this.cancel}
 				goBack={this.goBack}
+				goHome={this.goHome}
+				redirectAfterPayment={this.redirectAfterPayment}
 				clearMessage={this.clearMessage}
 				handleInputChange={this.handleInputChange}/>
 		)
@@ -133,6 +139,14 @@ class App extends React.Component {
 
 	clearMessage() {
 		this.setState({message: ''})
+	}
+
+	redirectAfterPayment() {
+		this.setState({view: this.state.view += 1})
+	}
+
+	goHome() {
+		this.setState({view: 1})
 	}
 
 	cancel(e) {

@@ -59,29 +59,23 @@ class PaymentPage extends React.Component {
 	      errorElement.textContent = result.error.message;
 	    } else {
 	      // Send the token to your server.
-	      debugger
 	      $.ajax("/letters", {
 					dataType: "JSON",
-					data: {stripeToken: result.token.id, 
-								receiptEmail: self.props.email, 
-								to_address: self.props.to, 
-								from_address: self.props.from,
-								message: self.props.message},
+					data: {
+						stripeToken: result.token.id, 
+						receiptEmail: self.props.email, 
+						to_address: self.props.to, 
+						from_address: self.props.from,
+						letter: {message:self.props.message}},
 					type: "POST",
 					success: ()=> {
-						alert("hit!")
+						self.props.redirectAfterPayment();
+
 					}
 				});
 	    }
-	  });
-	  
-
-	  
+	  }); 
 	}
-
-
-
-
 
 	render() {
 
