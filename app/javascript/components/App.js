@@ -17,7 +17,7 @@ class App extends React.Component {
 		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = {
-			view: 2,
+			view: 1,
 			message: '',
 			email: '',
 			to: {
@@ -106,7 +106,7 @@ class App extends React.Component {
 		  for (var i = 0; i < place.address_components.length; i++) {
 		  	
 		    var addressType = place.address_components[i].types[0];
-		    
+
 		    if (componentForm[addressType]) {
 		      var val = place.address_components[i][componentForm[addressType]];
 
