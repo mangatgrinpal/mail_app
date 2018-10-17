@@ -13,10 +13,11 @@ class App extends React.Component {
 		this.cancel = this.cancel.bind(this)
 		this.goBack = this.goBack.bind(this)
 		this.goHome = this.goHome.bind(this)
+		this.newLetter = this.newLetter.bind(this)
 		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = {
-			view: 7,
+			view: 2,
 			message: '',
 			email: '',
 			to: {
@@ -64,6 +65,54 @@ class App extends React.Component {
 				state: '',
 				zip: ''
 			}
+		}
+	}
+
+	componentDidMount() {
+		var self = this;
+		var autocomplete;
+		var address = [];
+		var componentForm = {
+		  street_number: 'short_name',
+		  route: 'long_name',
+		  locality: 'long_name',
+		  administrative_area_level_1: 'short_name',
+		  postal_code: 'short_name'
+		};
+
+		
+	  // Create the autocomplete object, restricting the search to geographical
+	  // location types.
+	  autocomplete = new google.maps.places.Autocomplete(
+	      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+	      {types: ['geocode']});
+
+	  // When the user selects an address from the dropdown, populate the address
+	  // fields in the form.
+	  autocomplete.addListener('place_changed', fillInAddress);
+	
+		function fillInAddress() {
+			
+		  // Get the place details from the autocomplete object.
+		  var place = autocomplete.getPlace();
+		  for (var component in componentForm) {
+		  	
+		    document.getElementById(component).value = '';
+		    document.getElementById(component).disabled = false;
+		  }
+		  console.log(place.address_components)
+		  // Get each component of the address from the place details
+		  // and fill the corresponding field on the form.
+		  for (var i = 0; i < place.address_components.length; i++) {
+		  	
+		    var addressType = place.address_components[i].types[0];
+		    
+		    if (componentForm[addressType]) {
+		      var val = place.address_components[i][componentForm[addressType]];
+
+		      document.getElementById(addressType).value = val;
+		    }
+		  }
 		}
 	}
 
@@ -121,15 +170,21 @@ class App extends React.Component {
 				cancel={this.cancel}
 				goBack={this.goBack}
 				goHome={this.goHome}
+				newLetter={this.newLetter}
 				redirectAfterPayment={this.redirectAfterPayment}
 				clearMessage={this.clearMessage}
 				handleInputChange={this.handleInputChange}/>
 		)
 	}
 
+	nextView() {
+		this.setState({view: this.state.view += 1})
+	}
+
 	nextStep(e) {
 		e.preventDefault()
-		this.setState({view: this.state.view += 1})
+		document.getElementById('autocomplete').value = '';
+		this.nextView();
 	}
 
 	goBack(e) {
@@ -142,11 +197,15 @@ class App extends React.Component {
 	}
 
 	redirectAfterPayment() {
-		this.setState({view: this.state.view += 1})
+		this.nextView();
 	}
 
 	goHome() {
 		this.setState({view: 1})
+	}
+
+	newLetter() {
+		this.setState(this.initialState)
 	}
 
 	cancel(e) {
