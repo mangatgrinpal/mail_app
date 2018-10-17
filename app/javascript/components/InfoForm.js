@@ -5,6 +5,53 @@ class InfoForm extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		var self = this;
+		var placeSearch, autocomplete;
+		var componentForm = {
+		  street_number: 'short_name',
+		  route: 'long_name',
+		  locality: 'long_name',
+		  administrative_area_level_1: 'short_name',
+		  postal_code: 'short_name'
+		};
+
+		
+	  // Create the autocomplete object, restricting the search to geographical
+	  // location types.
+	  autocomplete = new google.maps.places.Autocomplete(
+	      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+	      {types: ['geocode']});
+
+	  // When the user selects an address from the dropdown, populate the address
+	  // fields in the form.
+	  autocomplete.addListener('place_changed', fillInAddress);
+	
+		function fillInAddress() {
+			
+		  // Get the place details from the autocomplete object.
+		  var place = autocomplete.getPlace();
+		  for (var component in componentForm) {
+		  	
+		    document.getElementById(component).value = '';
+		    document.getElementById(component).disabled = false;
+		  }
+		  
+		  // Get each component of the address from the place details
+		  // and fill the corresponding field on the form.
+		  for (var i = 0; i < place.address_components.length; i++) {
+		  	
+		    var addressType = place.address_components[i].types[0];
+
+		    if (componentForm[addressType]) {
+		      var val = place.address_components[i][componentForm[addressType]];
+
+		      document.getElementById(addressType).value = val;
+		    }
+		  }
+		}
+	}
+
 
 	render() {
 		var destination;
@@ -43,7 +90,7 @@ class InfoForm extends React.Component {
 					</div>
 					<div className="form-group">
 						<label>Enter Address to Autofill</label>
-						<input id="autocomplete" type="text" className="form-control"/>
+						<input id="autocomplete" type="text" className="form-control" />
 					</div>
 					<div className="form-group">
 						<label>Address line 1</label>

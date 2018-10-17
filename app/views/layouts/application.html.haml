@@ -9,8 +9,7 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 	
 		%script{src: "https://js.stripe.com/v3/"}
-		%script{src:"https://maps.googleapis.com/maps/api/js?key=AIzaSyDRx1Y_fUF8W9A1U81MYLtLsLFQ-tZTP4k&libraries=places"}
-		
+		%script{type:"text/javascript",src:"https://maps.googleapis.com/maps/api/js?key=AIzaSyDRx1Y_fUF8W9A1U81MYLtLsLFQ-tZTP4k&libraries=places"}
 	%body{class: controller.controller_name}
 		
 		- flash.each do |name, msg|
