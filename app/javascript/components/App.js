@@ -183,7 +183,9 @@ class App extends React.Component {
 
 	nextStep(e) {
 		e.preventDefault()
-		document.getElementById('autocomplete').value = '';
+		if (this.state.view === 2 || this.state.view === 3) {
+			document.getElementById('autocomplete').value = '';
+		}
 		this.nextView();
 	}
 
