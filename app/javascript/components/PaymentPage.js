@@ -109,7 +109,7 @@ class PaymentPage extends React.Component {
 			    	</div>
 				  </div>
 				  <div className="btn-group btn-group-sm">
-						<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
+						<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
 						<button onClick={this.submitPayment} className="btn btn-success">Submit Payment</button>
 					</div>
 				</form>

@@ -43,35 +43,7 @@ class Confirmation extends React.Component {
 				<h3>Thanks for placing your order.</h3>
 				<p>Your receipt has been sent to {this.props.email}.</p>
 				<button onClick={this.props.newLetter} className="btn btn-primary">Send another?</button>
-				<p>(Optional) You can create an account to view your order history.</p>
-				<form id="sign-up-form">
-					<div className="form-group">
-						<label>Email</label>
-						<input
-							type="text"
-							name="email"
-							className="form-control"
-							value={this.props.email} readOnly/>
-					</div>
-					<div className="form-group">
-						<label>Password</label>
-						<input
-							id="password"
-							type="password"
-							name="password"
-							className="form-control"/>
-					</div>
-					<div className="form-group">
-						<label>Confirm Password</label>
-						<input
-							id="passwordConfirm"
-							type="password"
-							name="passwordConfirm"
-							className="form-control"/>
-					</div>
-					<button onClick={this.createAccount} className="btn btn-primary">Create Account</button>
-				</form>
-				<br/>
+				
 				
 			</div>
 		)

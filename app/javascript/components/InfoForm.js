@@ -164,7 +164,7 @@ class InfoForm extends React.Component {
 						</div>
 					</div>
 					<div className="btn-group btn-group-sm">
-						<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
+						<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
 						<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
 					</div>
 				</div>
