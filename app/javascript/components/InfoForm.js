@@ -82,10 +82,7 @@ class InfoForm extends React.Component {
 				<div className="col-md-8 offset-md-2 address-form">
 					<h3>{destination}</h3>
 					<br/>
-					<div className="form-group">
-						<label>Enter Address to autofill the fields below.</label>
-						<input id="autocomplete" type="text" className="form-control" />
-					</div>
+					
 					<div className="form-row">
 						<div className="form-group col-md-6">
 							<label>First Name</label>
@@ -106,6 +103,12 @@ class InfoForm extends React.Component {
 								onChange={this.props.handleInputChange} />
 						</div>
 					</div>
+					<div className="form-group">
+						<label>Enter Address to autofill the fields below.</label>
+						<input id="autocomplete" type="text" className="form-control" />
+					</div>
+					<br/>
+					<br/>
 					<div className="form-group">
 						<label>Address Line 1</label>
 						<input
@@ -162,7 +165,6 @@ class InfoForm extends React.Component {
 					</div>
 					<div className="btn-group btn-group-sm">
 						<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
-						<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
 						<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
 					</div>
 				</div>

@@ -11,7 +11,7 @@ class LetterReview extends React.Component {
 	render () {
 		
 		return (
-			<div className="col-md-8 offset-md-2">
+			<div className="col-md-8 offset-md-2 review-page">
 				<h2>How does it look? Ready to send it?</h2>
 				<LetterPreview {...this.props}/>
 				<br/>

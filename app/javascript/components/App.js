@@ -5,6 +5,7 @@ import LetterForm from "./LetterForm"
 import LetterReview from "./LetterReview"
 import PaymentPage from "./PaymentPage"
 import Confirmation from "./Confirmation"
+import AppDescription from "./AppDescription"
 
 class App extends React.Component {
 	constructor(props) {
@@ -159,7 +160,7 @@ class App extends React.Component {
 
 	nextStep(e) {
 		e.preventDefault()
-		if (this.state.view === 3 || this.state.view === 4) {
+		if (this.state.view === 2 || this.state.view === 3) {
 			document.getElementById('autocomplete').value = '';
 		}
 		this.nextView();
@@ -195,14 +196,29 @@ class App extends React.Component {
 	}
 
 	render() {
-		
-		return (
-			<div className="container-fluid home">
-				<h1 className="center">Mailr</h1>
-				<div className="section1">
-					{this.renderView()}
+		var description;
+		if (this.state.view === 1) {
+			description = 
+				<div className="row">
+					<div className="section2">
+						<h2>How it works</h2>
+						<AppDescription />
+					</div>
 				</div>
-				<br/>
+		} else {
+			description = <div/>
+		}
+		return (
+			<div className="home container-fluid">
+				<h1 className="center">Mailr</h1>
+				<div className="row">
+					<div className="col-12 section1">
+						<div>
+							{this.renderView()}
+						</div>
+					</div>
+				</div>
+				{description}
 			</div>
 		)
 	}
