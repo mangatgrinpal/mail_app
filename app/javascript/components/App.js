@@ -13,6 +13,7 @@ class App extends React.Component {
 		this.cancel = this.cancel.bind(this)
 		this.goBack = this.goBack.bind(this)
 		this.goHome = this.goHome.bind(this)
+		this.googleAutofillState = this.googleAutofillState.bind(this)
 		this.newLetter = this.newLetter.bind(this)
 		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
@@ -40,6 +41,10 @@ class App extends React.Component {
 			}
 		}
 		this.handleInputChange = this.handleInputChange.bind(this)
+	}
+
+	componentDidMount() {
+
 	}
 
 	initialState() {
@@ -105,6 +110,22 @@ class App extends React.Component {
 		}
 	}
 
+	
+
+	googleAutofillState(key, value) {
+		let newState = Object.assign({}, this.state)
+
+		if (this.state.view === 2) {
+			newState["to"][key] = value
+			this.setState(newState);
+		}
+		else if (this.state.view === 3) {
+			newState["from"][key] = value
+			this.setState(newState);
+		}
+	}
+
+
 	renderView() {
 		let addressState;
 		let Component = this.steps()[this.state.view]
@@ -124,6 +145,7 @@ class App extends React.Component {
 				cancel={this.cancel}
 				goBack={this.goBack}
 				goHome={this.goHome}
+				googleAutofillState={this.googleAutofillState}
 				newLetter={this.newLetter}
 				redirectAfterPayment={this.redirectAfterPayment}
 				clearMessage={this.clearMessage}
@@ -137,7 +159,7 @@ class App extends React.Component {
 
 	nextStep(e) {
 		e.preventDefault()
-		if (this.state.view === 2 || this.state.view === 3) {
+		if (this.state.view === 3 || this.state.view === 4) {
 			document.getElementById('autocomplete').value = '';
 		}
 		this.nextView();

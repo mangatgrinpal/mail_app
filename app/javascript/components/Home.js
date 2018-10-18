@@ -14,7 +14,7 @@ class Home extends React.Component {
 						<p> Write your letter online, we'll print it, envelope it, and send it for you.</p>
 						<p> Takes less than 3 minutes</p>
 						<p> All you have to do is type</p>
-						<button onClick={this.props.nextStep} id="toAddress" className="btn btn-primary">Write a letter</button>
+						<button onClick={this.props.nextStep} className="btn btn-primary">Write a letter</button>
 					</div>
 					</div>
 				</div>
