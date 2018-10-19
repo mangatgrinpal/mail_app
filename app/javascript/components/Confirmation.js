@@ -42,7 +42,7 @@ class Confirmation extends React.Component {
 			<div className="col-md-8 offset-md-2">
 				<h3>Thanks for placing your order.</h3>
 				<p>Your receipt has been sent to {this.props.email}.</p>
-				<button onClick={this.props.newLetter} className="btn btn-primary">Send another?</button>
+				<button onClick={this.props.newLetter} className="btn btn-success">Send another?</button>
 				
 				
 			</div>

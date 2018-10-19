@@ -80,39 +80,41 @@ class PaymentPage extends React.Component {
 	render() {
 
 		return (
-
-			<div className="col-md-8 offset-md-2">
-				<form id="payment-form">
-				  <div className="form-row">
-				  	<div className="col-12">
-					    <label htmlFor="card-element">
-					      <h3>Credit or debit card</h3>
-					    </label>
-				    	<div id="card-element"/>
+			<div className="col-md-12 payment-page">
+				<div className="col-md-8 offset-md-2">
+					<form id="payment-form">
+					  <div className="form-row">
+					  	<div className="col-12">
+						    <label htmlFor="card-element">
+						      <h3>Credit or debit card</h3>
+						    </label>
+					    	<div id="card-element"/>
+					    	<br/>
+					    	<div id="card-errors" role="alert"/>
+					    	<br/>
+					  	</div>
+					  </div>
+					  <br/>
+					  <div className="form-group">
+					  	<label>
+				    		<h3>Email (for your receipt)</h3>
+				    	</label>
 				    	<br/>
-				    	<div id="card-errors" role="alert"/>
-				    	<br/>
-				  	</div>
-				  </div>
-				  <br/>
-				  <div className="form-group">
-				  	<label>
-			    		<h3>Email (for your receipt)</h3>
-			    	</label>
-			    	<br/>
-			    	<div className="form-group">
-			    	<input id="receipt-email" 
-			    				type="text" 
-			    				name="email"
-			    				className="form-control" 
-			    				value={this.props.email} onChange={this.props.handleInputChange} />
-			    	</div>
-				  </div>
-				  <div className="btn-group btn-group-sm">
-						<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
-						<button onClick={this.submitPayment} className="btn btn-success">Submit Payment</button>
-					</div>
-				</form>
+				    	<div className="form-group">
+				    	<input id="receipt-email" 
+				    				type="text" 
+				    				name="email"
+				    				className="form-control" 
+				    				value={this.props.email} onChange={this.props.handleInputChange} />
+				    	</div>
+					  </div>
+					  <br/>
+					  <div className="btn-group btn-group-lg">
+							<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
+							<button onClick={this.submitPayment} className="btn btn-success">Submit Payment</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		)
 	}

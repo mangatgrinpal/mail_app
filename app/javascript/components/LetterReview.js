@@ -11,14 +11,19 @@ class LetterReview extends React.Component {
 	render () {
 		
 		return (
-			<div className="col-md-8 offset-md-2 review-page">
-				<h2>How does it look? Ready to send it?</h2>
+			<div className="col-md-12 review-page">
+			<div className="col-md-8 offset-md-2">
+				<h3>How does it look? Ready to send it?</h3>
+				<br/>
 				<LetterPreview {...this.props}/>
 				<br/>
-				<div className="btn-group btn-group-sm">
-					<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
+				<div className="btn-group btn-group-lg">
+					<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 					<button onClick={this.props.nextStep} className="btn btn-success">Continue to Payment</button>
 				</div>
+				<br/>
+				<br/>
+			</div>
 			</div>
 		)
 	}

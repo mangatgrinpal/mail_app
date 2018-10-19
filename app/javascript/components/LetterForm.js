@@ -6,28 +6,49 @@ class LetterForm extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		var self = this;
+		ClassicEditor.create(document.getElementById('editor'), {
+			toolbar: ['Heading','bold','italic','bulletedList','numberedList']
+		}).then( (editor) => {
+
+			
+      editor.model.document.on('change', () => {
+				self.props.setMessageState(editor.getData())
+			});
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+	}
+
+
+
 	render() {
+
 		return (
-			<div className="col-md-8 offset-md-2 letter-prompt">
+			<div className="col-12 letter-prompt">
+			<div className="col-md-8 offset-md-2">
+				<h3 className="center" style={{color: 'white'}}>What do you want to say to {this.props.to.first_name} {this.props.to.last_name}?</h3>
+				<br/>
 				<form>
 					<div className="form-group">
-						<label className="center ">What do you want to say to {this.props.to.first_name} {this.props.to.last_name}?</label>
 						<textarea
-							rows="10"
+							id="editor"
 							name="message"
-							className="form-control"
 							value={this.props.message}
 							onChange={this.props.handleInputChange} />
 					</div>
 				</form>
-				<button onClick={this.props.clearMessage} className="btn btn-primary">Clear Message</button>
+				{/*<button onClick={this.props.clearMessage} className="btn btn-primary">Clear Message</button>*/}
 				<br/>
-				<LetterPreview {...this.props}/>
-				<br/>
-				<div className="btn-group btn-group-sm">
-					<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
+				
+				
+				<div className="btn-group btn-group-lg">
+					<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 					<button onClick={this.props.nextStep} className="btn btn-success">Review Letter</button>
 				</div>
+			</div>
 			</div>
 		)
 	}

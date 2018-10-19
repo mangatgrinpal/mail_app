@@ -7,13 +7,19 @@ class Home extends React.Component {
 
 	render () {
 		return (
-			<div className="col-12">
-				<div className="col-5">
-					<h1>What If I Told You Snail Mail Could Be Now Mail?</h1>
+			<div className="col-md-12 home">
+				<div className="row">
+				<div className="col-md-4 offset-md-1 mission">
+					<h1 className="center">What If I Told You Snail Mail Could Be Now Mail?</h1>
+					<br/>
 					<p> Write your letter online, we'll print it, envelope it, and send it for you.</p>
 					<p> Takes less than 3 minutes</p>
 					<p> All you have to do is type</p>
-					<button onClick={this.props.nextStep} className="btn btn-primary">Write a letter</button>
+					<br/>
+				</div>
+				<div className="col-md-4 offset-md-1 center get-started">
+					<button onClick={this.props.nextStep} className="btn btn-success btn-lg btn-block">Get Started</button>
+				</div>
 				</div>
 			</div>		
 		)

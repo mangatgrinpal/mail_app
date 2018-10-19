@@ -15,6 +15,7 @@ class App extends React.Component {
 		this.goBack = this.goBack.bind(this)
 		this.goHome = this.goHome.bind(this)
 		this.googleAutofillState = this.googleAutofillState.bind(this)
+		this.setMessageState = this.setMessageState.bind(this)
 		this.newLetter = this.newLetter.bind(this)
 		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
@@ -126,6 +127,10 @@ class App extends React.Component {
 		}
 	}
 
+	setMessageState(value) {
+		this.setState({message: value})
+	}
+
 
 	renderView() {
 		let addressState;
@@ -147,6 +152,7 @@ class App extends React.Component {
 				goBack={this.goBack}
 				goHome={this.goHome}
 				googleAutofillState={this.googleAutofillState}
+				setMessageState={this.setMessageState}
 				newLetter={this.newLetter}
 				redirectAfterPayment={this.redirectAfterPayment}
 				clearMessage={this.clearMessage}
@@ -156,6 +162,7 @@ class App extends React.Component {
 
 	nextView() {
 		this.setState({view: this.state.view += 1})
+		$('.home').scrollTop = 0;
 	}
 
 	nextStep(e) {
@@ -209,10 +216,10 @@ class App extends React.Component {
 			description = <div/>
 		}
 		return (
-			<div className="home container-fluid">
+			<div className="container-fluid">
 				<h1 className="center">Mailr</h1>
 				<div className="row">
-					<div className="col-12 section1">
+					<div className="col-12">
 						<div>
 							{this.renderView()}
 						</div>

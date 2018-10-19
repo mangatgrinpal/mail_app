@@ -5,6 +5,13 @@ class LetterPreview extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		var htmlString = this.props.message
+		var div = document.getElementById('letter-content');
+		div.innerHTML = htmlString.trim();
+	}
+
+
 	render() {
 		return (
 			<div id="preview" className="container-fluid">
@@ -26,9 +33,8 @@ class LetterPreview extends React.Component {
 				<br/>
 				<br/>
 				<div className="row justify-content-start">
-					<div className="col-md-12">
-						{this.props.message}
-					</div>
+					<div id="letter-content" className="col-md-12" />
+						
 				</div>
 
 			</div>

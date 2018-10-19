@@ -41,8 +41,8 @@ class InfoForm extends React.Component {
 		    var addressType = place.address_components[i].types[0];
 
 		    if (componentForm[addressType]) {
-		    	//saving complete street address in variable streetAddress
-		    	//
+		    	//saving street_number in variable streetNumber
+		    	//saving route in variable streetAddress to join later for full street address
 		      var val = place.address_components[i][componentForm[addressType]];
 		      if (addressType === 'street_number') {
 		      	streetNumber += val
@@ -71,101 +71,117 @@ class InfoForm extends React.Component {
 	render() {
 		var destination;
 		if (this.props.view === 2) {
-			destination = "Where is this going?"
+			destination = 
+				<div className="col-md-4 offset-md-1 address-question center">
+					<h3>Where is this going?</h3>
+				</div>
+		} else {
+			destination = <div/>
 		}
 		if (this.props.view === 3) {
-			destination = "What's your address?"
+			origin =
+				<div className="col-md-4 offset-md-1 address-question center">
+					<h3>What's your address?</h3>
+				</div>
+		} else {
+			origin = <div/>
 		}
 		
 		return (
 			<form>
-				<div className="col-md-8 offset-md-2 address-form">
-					<h3>{destination}</h3>
-					<br/>
-					
-					<div className="form-row">
-						<div className="form-group col-md-6">
-							<label>First Name</label>
-							<input
-								type="text"
-								name="first_name"
-								className="form-control"
-								value={this.props.address.first_name}
-								onChange={this.props.handleInputChange} />
+				<div className="col-12 address-page">
+					<div className="row">
+						{destination}
+						<div className="col-md-4 offset-md-1 address-form">
+							<div className="form-row">
+								<div className="form-group col-md-6">
+									<label>First Name</label>
+									<input
+										type="text"
+										name="first_name"
+										className="form-control"
+										value={this.props.address.first_name}
+										onChange={this.props.handleInputChange} />
+								</div>
+								<div className="form-group col-md-6">
+									<label>Last Name</label>
+									<input
+										type="text"
+										name="last_name"
+										className="form-control"
+										value={this.props.address.last_name}
+										onChange={this.props.handleInputChange} />
+								</div>
+							</div>
+							<div className="form-group">
+								<label>Please enter address to autofill the fields below.</label>
+								<input id="autocomplete" type="text" className="form-control" />
+							</div>
+							<br/>
+							<br/>
+							<div className="form-group">
+								<label>Address Line 1</label>
+								<input
+									disabled={true}
+									id="street_number"
+									type="text"
+									name="address1"
+									className="form-control"
+									value={this.props.address.address1}
+									placeholder="Street Address" />
+							</div>
+							<div className="form-group">
+								<label>Address Line 2 (optional)</label>
+								<input
+									id="route"
+									type="text"
+									name="address2"
+									className="form-control"
+									value={this.props.address.address2}
+									onChange={this.props.handleInputChange}
+									placeholder="Apartment, Suite, etc." />
+							</div>
+							<div className="form-row">
+								<div className="form-group col-md-6">
+									<label>City</label>
+									<input
+										disabled={true}
+										id="locality"
+										type="text"
+										name="city"
+										className="form-control"
+										value={this.props.address.city} />
+								</div>
+								<div className="form-group col-md-3">
+									<label>State</label>
+									<input
+										disabled={true}
+										id="administrative_area_level_1"
+										type="text"
+										name="state"
+										className="form-control"
+										value={this.props.address.state} />
+								</div>
+								<div className="form-group col-md-3">
+									<label>Zip Code</label>
+									<input
+										disabled={true}
+										id="postal_code"
+										type="text"
+										name="zip"
+										className="form-control"
+										value={this.props.address.zip} />
+								</div>
+							</div>
+							<br/>
+							<div className="btn-group btn-group-lg">
+								<button onClick={this.props.goBack} className="btn btn-danger">Previous Step</button>
+								<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
+							</div>
+							<br/>
+							<br/>
 						</div>
-						<div className="form-group col-md-6">
-							<label>Last Name</label>
-							<input
-								type="text"
-								name="last_name"
-								className="form-control"
-								value={this.props.address.last_name}
-								onChange={this.props.handleInputChange} />
-						</div>
-					</div>
-					<div className="form-group">
-						<label>Enter Address to autofill the fields below.</label>
-						<input id="autocomplete" type="text" className="form-control" />
-					</div>
-					<br/>
-					<br/>
-					<div className="form-group">
-						<label>Address Line 1</label>
-						<input
-							disabled={true}
-							id="street_number"
-							type="text"
-							name="address1"
-							className="form-control"
-							value={this.props.address.address1}
-							placeholder="Street Address" />
-					</div>
-					<div className="form-group">
-						<label>Address Line 2 (optional)</label>
-						<input
-							id="route"
-							type="text"
-							name="address2"
-							className="form-control"
-							value={this.props.address.address2}
-							onChange={this.props.handleInputChange}
-							placeholder="Apartment, Suite, etc." />
-					</div>
-					<div className="form-row">
-						<div className="form-group col-md-6">
-							<label>City</label>
-							<input
-								disabled={true}
-								id="locality"
-								type="text"
-								name="city"
-								className="form-control"
-								value={this.props.address.city} />
-						</div>
-						<div className="form-group col-md-3">
-							<label>State</label>
-							<input
-								disabled={true}
-								id="administrative_area_level_1"
-								type="text"
-								name="state"
-								className="form-control"
-								value={this.props.address.state} />
-						</div>
-						<div className="form-group col-md-3">
-							<label>Zip Code</label>
-							<input
-								disabled={true}
-								id="postal_code"
-								type="text"
-								name="zip"
-								className="form-control"
-								value={this.props.address.zip} />
-						</div>
-					</div>
-					<div className="btn-group btn-group-sm">
-						<button onClick={this.props.goBack} className="btn btn-light">Previous Step</button>
-						<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
+						{origin}
 					</div>
 				</div>
 			</form>

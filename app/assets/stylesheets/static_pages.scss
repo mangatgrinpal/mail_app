@@ -2,64 +2,103 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .home {
-  .section1 {
-    h1, h2, h3, p { color: white; }
-    p { padding-top: 15px; }
-    button { padding-top: 15px;}
-    padding-top: 100px;
-    height: 800px;
-    background: image-url('dark_home.jpg');
-    background-size: cover;
-    
-    
+  color: #fff;
+  p { padding-top: 15px; }
+  button { 
+    font-size: 2rem;
+    padding: 45px;
+    box-shadow: 2px 2px black;
   }
-
-  #card-errors {
-    color: #fa755a;
-    //div height for text to fill upon error(s)
-    height: 1rem;
+  height: 800px;
+  padding-top: 150px;
+  background: image-url('dark_home.jpg');
+  background-size: cover;
+  .mission {
+    h1 {
+      text-shadow: 2px 2px black;
+    }
   }
+  .get-started {
+    padding: 130px 0px;
 
-  #receipt-email {
-    width: 450px;
   }
+}
 
-  #sign-up-form {
-    width: 450px;
-    color: #fff;
-  }
+#card-errors {
+  color: #fa755a;
+  //div height for text to fill upon error(s)
+  height: 1rem;
+}
 
-  .section2 {
-    height: 800px;
-    padding-top:100px;
+#receipt-email {
+  width: 450px;
+}
+
+#sign-up-form {
+  width: 450px;
+  color: #fff;
+}
+
+.section2 {
+  height: 800px;
+  padding-top:100px;
+}
+.address-page {
+  color: #fff;
+  background-color: #6D8182;
+  
+  .address-question {
+   padding: 300px 0px;
+
+   h3 {
+    font-size: 3rem;
+    text-shadow: 2px 2px black;
+   }
   }
 
   .address-form {
-    
-    
-		color: #fff;
-	}
-
-	.letter-prompt {
-    
-		color: #fff;
-	}
-
-  .review-page {
-    
+    padding-top: 100px;
+    height: 800px;
   }
-
-  
-
-	#preview {
-		background-color: #fff;
-		color: #000;
-    border: 2px solid #000;
-	}
-
-
 }
+
+.letter-prompt {
+  background-color: #6D8182;
+	padding-top: 100px;
+  height: 800px;
+  .ck-editor__editable {
+    height: 450px;
+    overflow: auto;
+  }
+}
+
+.review-page {
+  background-color: #6D8182;
+  padding-top: 100px;
+  height: 800px;
+}
+
+
+
+#preview {
+  height: 500px;
+  overflow: auto;
+	background-color: #fff;
+	color: #000;
+  border: 2px solid #000;
+}
+
+.payment-page {
+  color: white;
+  background-color: #6D8182;
+  padding-top: 100px;
+  height: 800px;
+}
+
+
+
 
 .StripeElement {
   background-color: white;
