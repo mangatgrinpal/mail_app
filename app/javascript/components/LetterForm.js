@@ -27,7 +27,7 @@ class LetterForm extends React.Component {
 	render() {
 
 		return (
-			<div className="col-12 letter-prompt">
+			<div className="col-12 letter-prompt background-settings">
 			<div className="col-md-8 offset-md-2">
 				<h3 className="center" style={{color: 'white'}}>What do you want to say to {this.props.to.first_name} {this.props.to.last_name}?</h3>
 				<br/>
@@ -44,7 +44,7 @@ class LetterForm extends React.Component {
 				<br/>
 				
 				
-				<div className="btn-group btn-group-lg">
+				<div className="btn-group btn-group-lg float-right">
 					<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 					<button onClick={this.props.nextStep} className="btn btn-success">Review Letter</button>
 				</div>

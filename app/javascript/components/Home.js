@@ -18,7 +18,7 @@ class Home extends React.Component {
 					<br/>
 				</div>
 				<div className="col-md-4 offset-md-1 center get-started">
-					<button onClick={this.props.nextStep} className="btn btn-success btn-lg btn-block">Get Started</button>
+					<button onClick={this.props.nextStep} className="btn btn-primary btn-lg">Get Started</button>
 				</div>
 				</div>
 			</div>		

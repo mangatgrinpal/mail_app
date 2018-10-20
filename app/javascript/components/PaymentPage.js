@@ -80,7 +80,7 @@ class PaymentPage extends React.Component {
 	render() {
 
 		return (
-			<div className="col-md-12 payment-page">
+			<div className="col-md-12 payment-page background-settings">
 				<div className="col-md-8 offset-md-2">
 					<form id="payment-form">
 					  <div className="form-row">
@@ -109,11 +109,12 @@ class PaymentPage extends React.Component {
 				    	</div>
 					  </div>
 					  <br/>
-					  <div className="btn-group btn-group-lg">
-							<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
-							<button onClick={this.submitPayment} className="btn btn-success">Submit Payment</button>
-						</div>
+					 
 					</form>
+					<div className="btn-group btn-group-lg payment-buttons">
+						<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
+						<button onClick={this.submitPayment} className="btn btn-success">Submit Payment</button>
+					</div>	
 				</div>
 			</div>
 		)

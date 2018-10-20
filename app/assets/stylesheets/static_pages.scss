@@ -8,8 +8,8 @@
   p { padding-top: 15px; }
   button { 
     font-size: 2rem;
-    padding: 45px;
-    box-shadow: 2px 2px black;
+    padding: 35px 80px;
+    border-radius: 60px;
   }
   height: 800px;
   padding-top: 150px;
@@ -61,13 +61,14 @@
   .address-form {
     padding-top: 100px;
     height: 800px;
+    label {
+      font-size: 0.75rem;
+    }
   }
 }
 
 .letter-prompt {
-  background-color: #6D8182;
-	padding-top: 100px;
-  height: 800px;
+  
   .ck-editor__editable {
     height: 450px;
     overflow: auto;
@@ -75,6 +76,10 @@
 }
 
 .review-page {
+  
+}
+
+.background-settings {
   background-color: #6D8182;
   padding-top: 100px;
   height: 800px;
@@ -92,9 +97,14 @@
 
 .payment-page {
   color: white;
-  background-color: #6D8182;
-  padding-top: 100px;
-  height: 800px;
+  .payment-buttons {
+    padding-left: 170px;
+  }
+  
+}
+
+.confirmation {
+  color: white;
 }
 
 
