@@ -1,5 +1,4 @@
 import React from "react"
-import LetterPreview from "./LetterPreview"
 
 class PaymentPage extends React.Component {
 	constructor(props) {
@@ -89,6 +88,7 @@ class PaymentPage extends React.Component {
 						      <h3>Credit or debit card</h3>
 						    </label>
 					    	<div id="card-element"/>
+					    	<img id="stripe-logo" src={'https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/powered_by_stripe.png'}/>
 					    	<br/>
 					    	<div id="card-errors" role="alert"/>
 					    	<br/>

@@ -15,18 +15,18 @@ class LetterPreview extends React.Component {
 	render() {
 		return (
 			<div id="preview" className="container-fluid">
-				<div className="row justify-content-end">
-					<div className="col-md-4 text-right">
+				<div className="row justify-content-start">
+					<div className="col-md-4 text-left">
 						{this.props.to.first_name} {this.props.to.last_name}
 					</div>
 				</div>
-				<div className="row justify-content-end">
-					<div className="col-md-4 text-right">
+				<div className="row justify-content-start">
+					<div className="col-md-4 text-left">
 						{this.props.to.address1} {this.props.to.address2}
 					</div>
 				</div>
-				<div className="row justify-content-end">
-					<div className="col-md-5 text-right">
+				<div className="row justify-content-tart">
+					<div className="col-md-5 text-left">
 						{this.props.to.city}, {this.props.to.state} {this.props.to.zip}
 					</div>
 				</div>

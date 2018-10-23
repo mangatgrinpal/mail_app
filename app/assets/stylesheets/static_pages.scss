@@ -43,8 +43,15 @@
 
 .section2 {
   height: 800px;
-  padding-top:100px;
+  padding: 100px 0px;
+  .step1,.step2,.step3,.step4 {
+    height: 200px;
+    img {
+      height:100%;
+    }
+  }
 }
+
 .address-page {
   color: #fff;
   background-color: #6D8182;
@@ -97,6 +104,9 @@
 
 .payment-page {
   color: white;
+  #stripe-logo {
+    padding: 4px 0px 0px 332px;
+  }
   .payment-buttons {
     padding-left: 170px;
   }

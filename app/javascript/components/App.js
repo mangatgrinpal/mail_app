@@ -19,29 +19,7 @@ class App extends React.Component {
 		this.newLetter = this.newLetter.bind(this)
 		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
-		this.state = {
-			view: 1,
-			message: '',
-			email: '',
-			to: {
-				first_name: '',
-				last_name: '',
-				address1: '',
-				address2: '',
-				city: '',
-				state: '',
-				zip: ''
-			},
-			from: {
-				first_name: '',
-				last_name: '',
-				address1: '',
-				address2: '',
-				city: '',
-				state: '',
-				zip: ''
-			}
-		}
+		this.state = this.initialState()
 		this.handleInputChange = this.handleInputChange.bind(this)
 	}
 
@@ -205,24 +183,19 @@ class App extends React.Component {
 	render() {
 		var description;
 		if (this.state.view === 1) {
-			description = 
-				<div className="row">
-					<div className="section2">
-						<h2>How it works</h2>
-						<AppDescription />
-					</div>
-				</div>
+			description = 				
+				<AppDescription />
 		} else {
 			description = <div/>
 		}
 		return (
-			<div className="container-fluid">
+			<div className="container-fluid remove-padding">
 				<h1 className="center">Mailr</h1>
 				<div className="row">
-					<div className="col-12">
-						<div>
-							{this.renderView()}
-						</div>
+					<div className="col-md-12">
+						
+						{this.renderView()}
+						
 					</div>
 				</div>
 				{description}

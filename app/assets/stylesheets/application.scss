@@ -14,9 +14,14 @@
  *= require_self
  */
 @import "bootstrap";
+@import "font-awesome";
 
 .center {
 	text-align: center;
+}
+
+.remove-padding {
+	padding: 0px 0px;
 }
 
 #footer {

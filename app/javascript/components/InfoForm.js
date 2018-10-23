@@ -69,7 +69,7 @@ class InfoForm extends React.Component {
 
 
 	render() {
-		var destination;
+		var destination, origin, backButton;
 		if (this.props.view === 2) {
 			destination = 
 				<div className="col-md-4 offset-md-1 address-question center">
@@ -86,8 +86,18 @@ class InfoForm extends React.Component {
 		} else {
 			origin = <div/>
 		}
+
+		if (this.props.view === 2) {
+			backButton =
+			<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
+
+		} else {
+			backButton =
+			<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
+		}
 		
 		return (
+
 			<form>
 				<div className="col-12 address-page">
 					<div className="row">
@@ -114,7 +124,7 @@ class InfoForm extends React.Component {
 								</div>
 							</div>
 							<div className="form-group">
-								<label>Please enter address to autofill the fields below.</label>
+								<label>Please enter address to autofill the fields below</label>
 								<input id="autocomplete" type="text" className="form-control" />
 							</div>
 							<br/>
@@ -175,8 +185,9 @@ class InfoForm extends React.Component {
 							</div>
 							<br/>
 							<div className="btn-group btn-group-lg float-right">
-								<button onClick={this.props.goBack} className="btn btn-danger">Previous Step</button>
+								{backButton}
 								<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
+								
 							</div>
 							<br/>
 							<br/>
