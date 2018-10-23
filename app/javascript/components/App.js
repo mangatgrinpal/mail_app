@@ -189,14 +189,14 @@ class App extends React.Component {
 			description = <div/>
 		}
 		return (
-			<div className="container-fluid remove-padding">
+			<div className="container-fluid">
 				<h1 className="center">Mailr</h1>
 				<div className="row">
-					<div className="col-md-12">
+					
 						
-						{this.renderView()}
+					{this.renderView()}
 						
-					</div>
+					
 				</div>
 				{description}
 			</div>

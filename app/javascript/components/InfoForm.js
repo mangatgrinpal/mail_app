@@ -98,8 +98,9 @@ class InfoForm extends React.Component {
 		
 		return (
 
-			<form>
+			
 				<div className="col-12 address-page">
+				<form>
 					<div className="row">
 						{destination}
 						<div className="col-md-4 offset-md-1 address-form">
@@ -194,8 +195,9 @@ class InfoForm extends React.Component {
 						</div>
 						{origin}
 					</div>
+					</form>
 				</div>
-			</form>
+			
 		)
 	}
 }
