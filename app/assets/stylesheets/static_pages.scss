@@ -21,8 +21,7 @@
     }
   }
   .get-started {
-    padding: 130px 0px;
-
+    padding: 236px 0px 0px 0px;
   }
 }
 
@@ -32,9 +31,7 @@
   height: 1rem;
 }
 
-#receipt-email {
-  width: 450px;
-}
+
 
 #sign-up-form {
   width: 450px;
@@ -56,27 +53,39 @@
     }
     img {
       height:200px;
-      display: none;
       position: relative;
     }
     i {
-      display: none;
+      font-size: 10rem;
       position: relative;
     }
-    .google-maps-desc {
-      display: none;
-      padding: 120px 0px 0px 0px;
+    #google-maps {
+      height: 300px
     }
-    .envelope-desc {
-      display: none;
-      padding: 50px 100px 0px 0px;
+    #google-maps-desc {
+      padding: 75px 120px 0px 0px;
+      
+      animation-name: fade-in;
+      animation-duration: 3s;
     }
-    .stripe-desc {
-      padding: 50px 0px 0px 65px;
-      display: none;
+
+    @keyframes fade-in {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
-    .plane-desc {
-      display: none;
+
+    #envelope-desc {
+      padding: 25px 0px 0px 100px;
+      animation-name: fade-in;
+      animation-duration: 3s;
+    }
+    #stripe-desc {
+      padding: 20px 125px 0px 65px;
+      animation-name: fade-in;
+      animation-duration: 3s;
+    }
+    #plane-desc {
+      padding: 0px 0px 0px 100px;
     }
   }
 }
@@ -112,7 +121,9 @@
 }
 
 .review-page {
-  
+  h3 {
+    color: #fff;
+  }
 }
 
 .background-settings {
@@ -133,13 +144,46 @@
 
 .payment-page {
   color: white;
+  .StripeElement {
+    background-color: white;
+    height: 40px;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+  //position of stripe logo under card input field
   #stripe-logo {
-    padding: 4px 0px 0px 332px;
+    float: right;
+    padding-top: 4px;
   }
+  // gives note in parentheses different font attributes than h3
+  span {
+    font-size: 1rem;
+    font-weight: 200; 
+  }
+  #receipt-email {
+    width: 100%;
+  }
+  // positions payment buttons to end where input field does
   .payment-buttons {
-    padding-left: 170px;
-  }
-  
+    float:right;
+  }  
 }
 
 .confirmation {
@@ -149,26 +193,3 @@
 
 
 
-.StripeElement {
-  background-color: white;
-  height: 40px;
-  width: 450px;
-  padding: 10px 12px;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-}
-
-.StripeElement--focus {
-  box-shadow: 0 1px 3px 0 #cfd7df;
-}
-
-.StripeElement--invalid {
-  border-color: #fa755a;
-}
-
-.StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
-}

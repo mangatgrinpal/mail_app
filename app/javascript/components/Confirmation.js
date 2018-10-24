@@ -41,8 +41,12 @@ class Confirmation extends React.Component {
 		return (
 			<div className="col-md-12 background-settings">
 				<div className="col-md-8 offset-md-2 confirmation">
-					<h3>Thanks for placing your order.</h3>
-					<p>Your receipt has been sent to {this.props.email}.</p>
+					<h2>Thank you for placing your order.</h2>
+					<p>Your letter will be prepared and mailed out within 24 hours.</p>
+					<br/>
+					<br/>
+					<p>A copy of your receipt has been sent to {this.props.email}.</p>
+					<br/>
 					<button onClick={this.props.newLetter} className="btn btn-success">Send another?</button>
 				</div>
 			</div>

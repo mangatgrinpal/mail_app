@@ -21,8 +21,9 @@ class InfoForm extends React.Component {
 	  // location types.
 	  autocomplete = new google.maps.places.Autocomplete(
 	      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-	      {types: ['geocode']});
-
+	      {types: ['geocode'], componentRestrictions: {country: 'us'}});
+	  //componentRestrictions limits country to US
+	  
 	  // When the user selects an address from the dropdown, populate the address
 	  // fields in the form.
 	  autocomplete.addListener('place_changed', fillInAddress);

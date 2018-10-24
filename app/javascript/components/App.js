@@ -140,7 +140,6 @@ class App extends React.Component {
 
 	nextView() {
 		this.setState({view: this.state.view += 1})
-		$('.home').scrollTop = 0;
 	}
 
 	nextStep(e) {
@@ -178,25 +177,22 @@ class App extends React.Component {
 		if (answer == true) {
 			this.setState(this.initialState)
 		}
+		window.scrollTo(0, 0);
 	}
 
 	render() {
 		var description;
 		if (this.state.view === 1) {
 			description = 				
-				<AppDescription />
+				<AppDescription nextStep={this.nextStep}/>
 		} else {
 			description = <div/>
 		}
 		return (
 			<div className="container-fluid">
-				<h1 className="center">Mailr</h1>
+				<h1 className="center">Snail Mail Now</h1>
 				<div className="row">
-					
-						
 					{this.renderView()}
-						
-					
 				</div>
 				{description}
 			</div>

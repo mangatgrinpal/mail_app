@@ -85,7 +85,7 @@ class PaymentPage extends React.Component {
 					  <div className="form-row">
 					  	<div className="col-12">
 						    <label htmlFor="card-element">
-						      <h3>Credit or debit card</h3>
+						      <h3>Credit/Debit Card</h3>
 						    </label>
 					    	<div id="card-element"/>
 					    	<img id="stripe-logo" src={'https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/powered_by_stripe.png'}/>
@@ -97,7 +97,7 @@ class PaymentPage extends React.Component {
 					  <br/>
 					  <div className="form-group">
 					  	<label>
-				    		<h3>Email (for your receipt)</h3>
+				    		<h3>Email <span>(for your receipt)</span></h3>
 				    	</label>
 				    	<br/>
 				    	<div className="form-group">
