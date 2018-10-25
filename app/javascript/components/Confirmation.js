@@ -47,7 +47,7 @@ class Confirmation extends React.Component {
 					<br/>
 					<p>A copy of your receipt has been sent to {this.props.email}.</p>
 					<br/>
-					<button onClick={this.props.newLetter} className="btn btn-success">Send another?</button>
+					<button onClick={this.props.newLetter} className="btn btn-success btn-lg">Send another?</button>
 				</div>
 			</div>
 		)

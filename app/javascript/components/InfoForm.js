@@ -23,7 +23,7 @@ class InfoForm extends React.Component {
 	      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
 	      {types: ['geocode'], componentRestrictions: {country: 'us'}});
 	  //componentRestrictions limits country to US
-	  
+
 	  // When the user selects an address from the dropdown, populate the address
 	  // fields in the form.
 	  autocomplete.addListener('place_changed', fillInAddress);
@@ -96,6 +96,8 @@ class InfoForm extends React.Component {
 			backButton =
 			<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 		}
+
+
 		
 		return (
 
@@ -107,7 +109,7 @@ class InfoForm extends React.Component {
 						<div className="col-md-4 offset-md-1 address-form">
 							<div className="form-row">
 								<div className="form-group col-md-6">
-									<label>First Name</label>
+									<label>First Name<sup>*</sup></label>
 									<input
 										type="text"
 										name="first_name"
@@ -116,7 +118,7 @@ class InfoForm extends React.Component {
 										onChange={this.props.handleInputChange} />
 								</div>
 								<div className="form-group col-md-6">
-									<label>Last Name</label>
+									<label>Last Name<sup>*</sup></label>
 									<input
 										type="text"
 										name="last_name"
@@ -132,7 +134,7 @@ class InfoForm extends React.Component {
 							<br/>
 							<br/>
 							<div className="form-group">
-								<label>Address Line 1</label>
+								<label>Address Line 1<sup>*</sup></label>
 								<input
 									disabled={true}
 									id="street_number"
@@ -143,7 +145,7 @@ class InfoForm extends React.Component {
 									placeholder="Street Address" />
 							</div>
 							<div className="form-group">
-								<label>Address Line 2 (optional)</label>
+								<label>Address Line 2 <sup>(optional)</sup></label>
 								<input
 									id="route"
 									type="text"
@@ -155,7 +157,7 @@ class InfoForm extends React.Component {
 							</div>
 							<div className="form-row">
 								<div className="form-group col-md-6">
-									<label>City</label>
+									<label>City<sup>*</sup></label>
 									<input
 										disabled={true}
 										id="locality"
@@ -165,7 +167,7 @@ class InfoForm extends React.Component {
 										value={this.props.address.city} />
 								</div>
 								<div className="form-group col-md-3">
-									<label>State</label>
+									<label>State<sup>*</sup></label>
 									<input
 										disabled={true}
 										id="administrative_area_level_1"
@@ -175,7 +177,7 @@ class InfoForm extends React.Component {
 										value={this.props.address.state} />
 								</div>
 								<div className="form-group col-md-3">
-									<label>Zip Code</label>
+									<label>Zip Code<sup>*</sup></label>
 									<input
 										disabled={true}
 										id="postal_code"
@@ -184,6 +186,10 @@ class InfoForm extends React.Component {
 										className="form-control"
 										value={this.props.address.zip} />
 								</div>
+							</div>
+							<br/>
+							<div className="float-right">
+								<sup>* = required field</sup>
 							</div>
 							<br/>
 							<div className="btn-group btn-group-lg float-right">

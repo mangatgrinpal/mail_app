@@ -48,32 +48,42 @@ class PaymentPage extends React.Component {
 		
 	}
 
+	validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+	}
+
 	submitPayment(e) {
 		e.preventDefault();
 		var self = this;
-	  self.state.stripe.createToken(self.state.card).then(function(result) {
-	    if (result.error) {
-	      // Inform the customer that there was an error.
-	      var errorElement = document.getElementById('card-errors');
-	      errorElement.textContent = result.error.message;
-	    } else {
-	      // Send the token to your server.
-	      $.ajax("/letters", {
-					dataType: "JSON",
-					data: {
-						stripeToken: result.token.id, 
-						receiptEmail: self.props.email, 
-						to_address: self.props.to, 
-						from_address: self.props.from,
-						letter: {message:self.props.message}},
-					type: "POST",
-					success: ()=> {
-						self.props.redirectAfterPayment();
+		debugger
+		if (self.validateEmail(self.props.email)) {
+				self.state.stripe.createToken(self.state.card).then(function(result) {
+		    if (result.error) {
+		      // Inform the customer that there was an error.
+		      var errorElement = document.getElementById('card-errors');
+		      errorElement.textContent = result.error.message;
+		    } else {
+		      // Send the token to your server.
+		      $.ajax("/letters", {
+						dataType: "JSON",
+						data: {
+							stripeToken: result.token.id, 
+							receiptEmail: self.props.email, 
+							to_address: self.props.to, 
+							from_address: self.props.from,
+							letter: {message:self.props.message}},
+						type: "POST",
+						success: ()=> {
+							self.props.redirectAfterPayment();
 
-					}
-				});
-	    }
-	  }); 
+						}
+					});
+		    }
+		  }); 
+		} else {
+				alert("Please enter a valid email! This is for your receipt.");
+		}
 	}
 
 	render() {
