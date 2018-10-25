@@ -10,7 +10,7 @@ class PaymentPage extends React.Component {
 		this.submitPayment = this.submitPayment.bind(this)
 	}
 
-	
+
 
 	componentDidMount() {
 		var stripe = Stripe('pk_test_mjlulli9JM43KtCjBXcaqtOw');
@@ -58,7 +58,6 @@ class PaymentPage extends React.Component {
 	submitPayment(e) {
 		e.preventDefault();
 		var self = this;
-		debugger
 		if (self.validateEmail(self.props.email)) {
 				self.state.stripe.createToken(self.state.card).then(function(result) {
 		    if (result.error) {
