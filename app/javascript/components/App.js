@@ -29,7 +29,7 @@ class App extends React.Component {
 
 	initialState() {
 		return {
-			view: 1,
+			view: 6,
 			message: '',
 			email: '',
 			to: {

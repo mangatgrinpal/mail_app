@@ -10,6 +10,8 @@ class PaymentPage extends React.Component {
 		this.submitPayment = this.submitPayment.bind(this)
 	}
 
+	
+
 	componentDidMount() {
 		var stripe = Stripe('pk_test_mjlulli9JM43KtCjBXcaqtOw');
 		this.setState({stripe: stripe})
@@ -91,6 +93,19 @@ class PaymentPage extends React.Component {
 		return (
 			<div className="col-md-12 payment-page background-settings">
 				<div className="col-md-8 offset-md-2">
+				<br/>
+				<br/>
+				<div className="row justify-contents-between">
+
+					<div className="col-md-6 product-info">
+					<h3>1 <span><sup>x</sup></span> Letter</h3>
+					</div>
+					<div className="col-md-6 price-info">
+					<h3>Total: $3.99</h3>
+					</div>
+				</div>
+				<br/>
+				<hr/>
 					<form id="payment-form">
 					  <div className="form-row">
 					  	<div className="col-12">

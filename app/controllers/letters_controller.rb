@@ -10,9 +10,9 @@ class LettersController < ApplicationController
 
 			token = params[:stripeToken]
 			charge = Stripe::Charge.create({
-			    amount: 500,
+			    amount: 399,
 			    currency: 'usd',
-			    description: 'Mail',
+			    description: 'Snail Mail Now',
 			    source: token,
 			    receipt_email: params[:receiptEmail],
 			})
