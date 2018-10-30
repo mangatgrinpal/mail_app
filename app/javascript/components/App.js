@@ -18,6 +18,7 @@ class App extends React.Component {
 		this.setMessageState = this.setMessageState.bind(this)
 		this.newLetter = this.newLetter.bind(this)
 		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
+		this.formChecker = this.formChecker.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = this.initialState()
 		this.handleInputChange = this.handleInputChange.bind(this)
@@ -134,6 +135,7 @@ class App extends React.Component {
 				newLetter={this.newLetter}
 				redirectAfterPayment={this.redirectAfterPayment}
 				clearMessage={this.clearMessage}
+				formChecker={this.formChecker}
 				handleInputChange={this.handleInputChange}/>
 		)
 	}
@@ -164,7 +166,7 @@ class App extends React.Component {
 			let f = this.state.to.zip
 
 			if (a==null || a == "" || b==null || b=="" || c==null || c=="" || d==null || d=="" || e==null || e=="" || f==null || f=="") {
-				alert("Please fill all required fields.");
+				$('#alertModal').modal('toggle');
 				return false;
 			} else {
 				return true;
@@ -179,7 +181,7 @@ class App extends React.Component {
 			let f = this.state.from.zip
 
 			if (a==null || a == "" || b==null || b==""|| c==null || c==""|| d==null || d==""|| e==null || e==""|| f==null || f=="") {
-				alert("Please fill all required fields.");
+				$('#alertModal').modal('toggle');
 				return false;
 			} else {
 				return true;
@@ -189,7 +191,7 @@ class App extends React.Component {
 			let a = this.state.message
 
 			if (a==null || a == "" || a == "<p>&nbsp;</p>" || a == "<p>&nbsp;</p><p>&nbsp;</p>") {
-				alert("Please include a message.");
+				$('#alertModal').modal('toggle');
 				return false;
 			} else {
 				return true;
