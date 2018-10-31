@@ -13,7 +13,7 @@ class PaymentPage extends React.Component {
 
 
 	componentDidMount() {
-		var stripe = Stripe('pk_test_mjlulli9JM43KtCjBXcaqtOw');
+		var stripe = Stripe(this.props.stripeKey);
 		this.setState({stripe: stripe})
 		var elements = stripe.elements();
 		var style = {

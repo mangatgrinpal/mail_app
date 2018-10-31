@@ -136,6 +136,7 @@ class App extends React.Component {
 				redirectAfterPayment={this.redirectAfterPayment}
 				clearMessage={this.clearMessage}
 				formChecker={this.formChecker}
+				stripeKey={this.props.stripeKey}
 				handleInputChange={this.handleInputChange}/>
 		)
 	}
