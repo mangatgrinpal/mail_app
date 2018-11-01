@@ -38,6 +38,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
 
 gem "font-awesome-rails"
+# sitemap generator for SEO(search engine optimization)
+gem 'sitemap_generator'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
