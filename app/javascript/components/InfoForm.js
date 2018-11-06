@@ -56,6 +56,8 @@ class InfoForm extends React.Component {
 		    }
 		  }
 		}
+		this.turnOffGoogleAutoComplete();
+		//after autocomplete is mounted
 	}
 
 	googleMapsKeys() {
@@ -68,6 +70,22 @@ class InfoForm extends React.Component {
 		}
 	}
 
+	turnOffGoogleAutoComplete() {
+		//this function prevents browser autocomplete from initiating 
+		//so google autocomplete can be seen clearly.
+		var autocompleteInput = document.getElementById("autocomplete");
+
+    var observerHack = new MutationObserver(function() {
+        observerHack.disconnect();
+        $("#autocomplete").attr("autocomplete", "new-password");
+    });
+
+    observerHack.observe(autocompleteInput, {
+        attributes: true,
+        attributeFilter: ['autocomplete']
+    });
+	}
+
 
 	render() {
 		var destination, origin, backButton, continueButton;
@@ -76,8 +94,12 @@ class InfoForm extends React.Component {
 				<div className="col-md-4 offset-md-1 address-question center">
 					<h3>Where is this going?</h3>
 				</div>
+			backButton =
+			<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>	
 		} else {
 			destination = <div/>
+			backButton =
+			<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 		}
 		if (this.props.view === 3) {
 			origin =
@@ -88,22 +110,14 @@ class InfoForm extends React.Component {
 			origin = <div/>
 		}
 
-		if (this.props.view === 2) {
-			backButton =
-			<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>
-
-		} else {
-			backButton =
-			<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
-		}
-
 
 		
 		return (
 
 			
 				<div className="col-12 address-page">
-				<form>
+				<form autoComplete="off">
+					
 					<div className="row">
 						{destination}
 						<div className="col-md-4 offset-md-1 address-form">
@@ -111,25 +125,35 @@ class InfoForm extends React.Component {
 								<div className="form-group col-md-6">
 									<label>First Name<sup>*</sup></label>
 									<input
+										autoComplete="nope"
 										type="text"
+										id="first_name"
 										name="first_name"
 										className="form-control"
 										value={this.props.address.first_name}
-										onChange={this.props.handleInputChange} />
+										onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 								</div>
 								<div className="form-group col-md-6">
 									<label>Last Name<sup>*</sup></label>
 									<input
+										autoComplete="nope"
 										type="text"
+										id="last_name"
 										name="last_name"
 										className="form-control"
 										value={this.props.address.last_name}
-										onChange={this.props.handleInputChange} />
+										onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 								</div>
 							</div>
 							<div className="form-group">
 								<label>Please enter address to autofill the fields below</label>
-								<input id="autocomplete" type="text" className="form-control" />
+								<input 
+									autoComplete="nope"
+									id="autocomplete" 
+									name="autocomplete" 
+									type="text" 
+									className="form-control" 
+									onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 							</div>
 							<br/>
 							<br/>
@@ -147,6 +171,7 @@ class InfoForm extends React.Component {
 							<div className="form-group">
 								<label>Address Line 2 <sup>(optional)</sup></label>
 								<input
+									autoComplete="nope"
 									id="route"
 									type="text"
 									name="address2"
@@ -194,7 +219,7 @@ class InfoForm extends React.Component {
 							<br/>
 							<div className="btn-group btn-group-lg float-right">
 								{backButton}
-								<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
+								<button disabled={this.props.button} onClick={this.props.nextStep} className="btn btn-success">Continue</button>
 								
 							</div>
 							<br/>
@@ -203,7 +228,7 @@ class InfoForm extends React.Component {
 						{origin}
 					</div>
 					</form>
-					<div className="modal fade" id="alertModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					{/*<div className="modal fade" id="alertModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					  <div className="modal-dialog modal-dialog-centered" role="document">
 					    <div className="modal-content">
 				
@@ -215,7 +240,7 @@ class InfoForm extends React.Component {
 					      </div>
 					    </div>
 					  </div>
-					</div>
+					</div>*/}
 				</div>
 			
 		)

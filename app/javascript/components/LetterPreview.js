@@ -17,6 +17,22 @@ class LetterPreview extends React.Component {
 			<div id="preview" className="container-fluid">
 				<div className="row justify-content-start">
 					<div className="col-md-4 text-left">
+						{this.props.from.first_name} {this.props.from.last_name}
+					</div>
+				</div>
+				<div className="row justify-content-start">
+					<div className="col-md-4 text-left">
+						{this.props.from.address1} {this.props.from.address2}
+					</div>
+				</div>
+				<div className="row justify-content-tart">
+					<div className="col-md-5 text-left">
+						{this.props.from.city}, {this.props.from.state} {this.props.from.zip}
+					</div>
+				</div>
+				<br/>
+				<div className="row justify-content-start">
+					<div className="col-md-4 text-left">
 						{this.props.to.first_name} {this.props.to.last_name}
 					</div>
 				</div>
@@ -30,7 +46,6 @@ class LetterPreview extends React.Component {
 						{this.props.to.city}, {this.props.to.state} {this.props.to.zip}
 					</div>
 				</div>
-				<br/>
 				<br/>
 				<div className="row justify-content-start">
 					<div id="letter-content" className="col-md-12" />

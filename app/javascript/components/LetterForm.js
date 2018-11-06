@@ -15,6 +15,7 @@ class LetterForm extends React.Component {
 			
       editor.model.document.on('change', () => {
 				self.props.setMessageState(editor.getData())
+				self.props.handleContinueButtonChange();
 			});
     })
     .catch((error) => {
@@ -41,30 +42,25 @@ class LetterForm extends React.Component {
 
 		return (
 			<div className="col-12 letter-prompt background-settings">
-			<div className="col-md-8 offset-md-2">
-				<h3 className="center" style={{color: 'white'}}>What do you want to say to {this.props.to.first_name} {this.props.to.last_name}?</h3>
-				<br/>
-				
-				<form>
-					<div className="form-group">
-						<textarea
-							id="editor"
-							name="message"
-							value={this.props.message}
-							
-							onChange={this.props.handleInputChange} />
+				<div className="col-md-8 offset-md-2">
+					<h3 className="center" style={{color: 'white'}}>What do you want to say to {this.props.to.first_name} {this.props.to.last_name}?</h3>
+					<br/>
+					
+					<form>
+						<div className="form-group">
+							<textarea
+								id="editor"
+								name="message" />
+						</div>
+					</form>
+					<p style={{color: 'white'}}>Characters used: {this.countCharacters()} / 3000</p>
+					{/*<button onClick={this.props.clearMessage} className="btn btn-primary">Clear Message</button>*/}
+					
+					<div className="btn-group btn-group-lg float-right">
+						<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
+						<button disabled={this.props.button} onClick={this.props.nextStep} className="btn btn-success">Review Letter</button>
 					</div>
-				</form>
-				<p style={{color: 'white'}}>Characters used: {this.countCharacters()} / 3000</p>
-				{/*<button onClick={this.props.clearMessage} className="btn btn-primary">Clear Message</button>*/}
-				
-				
-				
-				<div className="btn-group btn-group-lg float-right">
-					<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
-					<button onClick={this.props.nextStep} className="btn btn-success">Review Letter</button>
 				</div>
-			</div>
 			</div>
 		)
 	}

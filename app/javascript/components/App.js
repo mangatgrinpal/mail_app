@@ -21,28 +21,13 @@ class App extends React.Component {
 		this.formChecker = this.formChecker.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = this.initialState()
+		//react docs suggest binding for performance
 		this.handleInputChange = this.handleInputChange.bind(this)
-	}
-
-	componentDidMount() {
-
+		this.handleContinueButtonChange = this.handleContinueButtonChange.bind(this)
 	}
 
 	initialState() {
-		return {
-			view: 1,
-			message: '',
-			email: '',
-			to: {
-				first_name: '',
-				last_name: '',
-				address1: '',
-				address2: '',
-				city: '',
-				state: '',
-				zip: ''
-			},
-			from: {
+		var details = {
 				first_name: '',
 				last_name: '',
 				address1: '',
@@ -51,6 +36,14 @@ class App extends React.Component {
 				state: '',
 				zip: ''
 			}
+
+		return {
+			button: true,
+			view: 1,
+			message: '',
+			email: '',
+			to: Object.assign({}, details),
+			from: Object.assign({}, details)
 		}
 	}
 
@@ -77,6 +70,51 @@ class App extends React.Component {
 				[name]: value
 			});
 		}
+	}
+
+	handleContinueButtonChange(e) {
+		var button;
+		if (this.state.view == 2) {
+			
+			let firstName = this.state.to.first_name
+			let lastName = this.state.to.last_name
+			let autoComplete = document.getElementById('autocomplete').value
+
+			if (firstName=='' || lastName=='' || autoComplete=='') {
+				
+				button = true;
+				
+			} else {
+				button = false;
+			}
+		} else if (this.state.view == 3) {
+
+			let firstName = this.state.from.first_name
+			let lastName = this.state.from.last_name
+			let autoComplete = document.getElementById('autocomplete').value
+
+			if (firstName=='' || lastName=='' || autoComplete=='') {
+				
+				button = true;
+				
+			} else {
+				button = false;
+			}
+		
+		} else if (this.state.view == 4) {
+
+			let stuff = this.state.message
+			
+			if (stuff == "" || stuff == "<p>&nbsp;</p>") {
+				button = true;
+				
+			} else {
+				button = false
+				
+			}
+		}
+		
+		this.setState({button: button})
 	}
 
 	steps() {
@@ -137,6 +175,7 @@ class App extends React.Component {
 				clearMessage={this.clearMessage}
 				formChecker={this.formChecker}
 				stripeKey={this.props.stripeKey}
+				handleContinueButtonChange={this.handleContinueButtonChange}
 				handleInputChange={this.handleInputChange}/>
 		)
 	}
@@ -146,33 +185,21 @@ class App extends React.Component {
 	}
 
 	nextStep(e) {
-		e.preventDefault()
-		if (this.formChecker()) {
-			if (this.state.view === 2 || this.state.view === 3) {
-				document.getElementById('autocomplete').value = '';
-			}
-			this.nextView();	
+		e.preventDefault()		
+		if (this.state.view === 2 || this.state.view === 3) {
+			document.getElementById('autocomplete').value = '';
 		}
+		this.nextView();
+		this.setState({button: true})
 	}
 
 	formChecker () {
 		
-
+		
 		if (this.state.view === 2) {
-			let a = this.state.to.first_name
-			let b = this.state.to.last_name
-			let c = this.state.to.address1
-			let d = this.state.to.city
-			let e = this.state.to.state
-			let f = this.state.to.zip
+			
+		}
 
-			if (a==null || a == "" || b==null || b=="" || c==null || c=="" || d==null || d=="" || e==null || e=="" || f==null || f=="") {
-				$('#alertModal').modal('toggle');
-				return false;
-			} else {
-				return true;
-			}
-		} 
 		if (this.state.view === 3) {
 			let a = this.state.from.first_name
 			let b = this.state.from.last_name
@@ -181,7 +208,7 @@ class App extends React.Component {
 			let e = this.state.from.state
 			let f = this.state.from.zip
 
-			if (a==null || a == "" || b==null || b==""|| c==null || c==""|| d==null || d==""|| e==null || e==""|| f==null || f=="") {
+			if (a == "" || b=="" || c=="" || d=="" || e=="" || f=="") {
 				$('#alertModal').modal('toggle');
 				return false;
 			} else {
@@ -191,7 +218,7 @@ class App extends React.Component {
 		if (this.state.view === 4) {
 			let a = this.state.message
 
-			if (a==null || a == "" || a == "<p>&nbsp;</p>" || a == "<p>&nbsp;</p><p>&nbsp;</p>") {
+			if (a == "" || a == "<p>&nbsp;</p>" || a == "<p>&nbsp;</p><p>&nbsp;</p>") {
 				$('#alertModal').modal('toggle');
 				return false;
 			} else {
@@ -201,6 +228,7 @@ class App extends React.Component {
 			return true;
 		}
 	}
+
 
 
 	goBack(e) {
