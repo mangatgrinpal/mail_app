@@ -23,6 +23,8 @@
 		= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 		%link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.4.1/css/all.css", :integrity => "sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz", :rel => "stylesheet"}
 
+		%link{href: "https://fonts.googleapis.com/css?family=Archivo:400,600", rel: "stylesheet"}
+
 
 		%script{src: "https://js.stripe.com/v3/"}
 		%script{type:"text/javascript",src:"https://maps.googleapis.com/maps/api/js?key=AIzaSyDRx1Y_fUF8W9A1U81MYLtLsLFQ-tZTP4k&libraries=places"}
@@ -36,7 +38,7 @@
 
 
 		= javascript_pack_tag 'application'
-
+		= react_component('Nav',{})
 		= yield
 
 		

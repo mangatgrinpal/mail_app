@@ -18,7 +18,6 @@ class App extends React.Component {
 		this.setMessageState = this.setMessageState.bind(this)
 		this.newLetter = this.newLetter.bind(this)
 		this.redirectAfterPayment = this.redirectAfterPayment.bind(this)
-		this.formChecker = this.formChecker.bind(this)
 		this.clearMessage = this.clearMessage.bind(this)
 		this.state = this.initialState()
 		//react docs suggest binding for performance
@@ -193,44 +192,7 @@ class App extends React.Component {
 		this.setState({button: true})
 	}
 
-	formChecker () {
-		
-		
-		if (this.state.view === 2) {
-			
-		}
-
-		if (this.state.view === 3) {
-			let a = this.state.from.first_name
-			let b = this.state.from.last_name
-			let c = this.state.from.address1
-			let d = this.state.from.city
-			let e = this.state.from.state
-			let f = this.state.from.zip
-
-			if (a == "" || b=="" || c=="" || d=="" || e=="" || f=="") {
-				$('#alertModal').modal('toggle');
-				return false;
-			} else {
-				return true;
-			}
-		}
-		if (this.state.view === 4) {
-			let a = this.state.message
-
-			if (a == "" || a == "<p>&nbsp;</p>" || a == "<p>&nbsp;</p><p>&nbsp;</p>") {
-				$('#alertModal').modal('toggle');
-				return false;
-			} else {
-				return true;
-			}
-		} else {
-			return true;
-		}
-	}
-
-
-
+	
 	goBack(e) {
 		e.preventDefault()
 		this.setState({view: this.state.view -= 1})
@@ -271,8 +233,7 @@ class App extends React.Component {
 		}
 		return (
 			<div className="container-fluid">
-				<h1 className="center">Snail Mail Now</h1>
-				<div className="row">
+				<div className="row main-content">
 					{this.renderView()}
 				</div>
 				{description}

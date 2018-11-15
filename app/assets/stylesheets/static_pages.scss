@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.main-content {
+  //makes div height equal to viewport height so all pages will span height of viewport
+  height: 94vh;
+}
 
 .home {
   color: #fff;
@@ -11,10 +15,12 @@
     padding: 35px 80px;
     border-radius: 60px;
   }
-  height: 800px;
+  
+  
   padding-top: 150px;
   background-image: url('https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/dark_home_resize.jpeg');
   background-size: cover;
+  background-attachment: fixed;
   .mission {
     h1 {
       text-shadow: 2px 2px black;
@@ -133,7 +139,7 @@
 .background-settings {
   background-color: #6D8182;
   padding-top: 100px;
-  height: 800px;
+  
 }
 
 
@@ -202,6 +208,23 @@
   color: white;
 }
 
+.about-background {
+  background-image: url("https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/about_page.jpeg");
+  opacity: 0.8;
+  height: 40vh;
+  background-size: cover;
+}
+
+.about-section-wrapper {
+  padding: 100px 0px;
+  .about-section-founder {
+    padding-top: 100px;
+    .founder-pic {
+      background-image: url("http://lavoiepllc.com/wp-content/uploads/2017/04/Mr._Potato_Head.png");
+      height: 200px;
+    }
+  }
+}
 
 
 
