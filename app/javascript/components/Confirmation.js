@@ -8,34 +8,34 @@ class Confirmation extends React.Component {
 
 
 
-	createAccount(e) {
-		e.preventDefault();
-		var self = this;
-		$.ajax("/users", {
-			dataType: "JSON",
-			data: {sign_up: {
-				email: self.props.email,
-				password: this.getPassword(),
-				password_confirmation: this.getPasswordConfirm()
-			}},
-			type: "POST",
-			success: ()=> {
-				alert('hello')
-			}
-		})
-	}
+	// createAccount(e) {
+	// 	e.preventDefault();
+	// 	var self = this;
+	// 	$.ajax("/users", {
+	// 		dataType: "JSON",
+	// 		data: {sign_up: {
+	// 			email: self.props.email,
+	// 			password: this.getPassword(),
+	// 			password_confirmation: this.getPasswordConfirm()
+	// 		}},
+	// 		type: "POST",
+	// 		success: ()=> {
+	// 			alert('hello')
+	// 		}
+	// 	})
+	// }
 
-	getPassword() {
-		return (
-			document.getElementById('password').value
-		)
-	}
+	// getPassword() {
+	// 	return (
+	// 		document.getElementById('password').value
+	// 	)
+	// }
 
-	getPasswordConfirm() {
-		return (
-			document.getElementById('passwordConfirm').value
-		)
-	}
+	// getPasswordConfirm() {
+	// 	return (
+	// 		document.getElementById('passwordConfirm').value
+	// 	)
+	// }
 
 	render() {
 		return (
@@ -48,6 +48,7 @@ class Confirmation extends React.Component {
 					<p>A copy of your receipt has been sent to {this.props.email}.</p>
 					<br/>
 					<button onClick={this.props.newLetter} className="btn btn-success btn-lg">Send another?</button>
+					<button className="btn btn-primary btn-lg">Close </button>
 				</div>
 			</div>
 		)

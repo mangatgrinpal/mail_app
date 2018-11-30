@@ -24,21 +24,26 @@ class About extends React.Component {
 							<p>Your messages will be printed, enveloped, stamped, and on their way with just a few clicks.</p>
 						</div>
 						<br/>
-						{/*<div className="col-md-6 offset-md-3 about-section-founder">
-							<h3 className="center">Founder</h3>
-								<br/>
-								<div className="row">
-									<div className="col-md-6 founder-pic">
-										<h4>Pic goes here</h4>
+						<div className="row the-team">
+							<div className="col-md-6 offset-md-3 about-section-founder">
+								<h2 className="center">The Team</h2>
+									<br/>
+									<div className="row ginny-section">
+										<div className="col-md-6 founder-pic center">
+											<img src="https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/g_headshot.JPG"/>
+											<br/>
+										</div>
+
+										<div className="col-md-6 founder-desc">
+											<h4>Ginny Mangat</h4>
+											<h6>Founder/CTO</h6>
+											<br/>
+											<p>Ginny is a former chemist turned web developer who takes great interest in building
+											quality products and solving problems to make our every day lives easier.</p>
+										</div>
 									</div>
-									<div className="col-md-6 founder-desc">
-										<h4>Ginny Mangat</h4>
-										<p>CTO/Founder</p>
-										<p>Ginny is a former chemist turned web developer who takes great interest in building
-										quality products and solving problems to make our every day lives easier.</p>
-									</div>
-								</div>
-						</div>*/}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

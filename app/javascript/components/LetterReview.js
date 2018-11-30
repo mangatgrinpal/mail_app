@@ -17,6 +17,9 @@ class LetterReview extends React.Component {
 					<br/>
 					<LetterPreview {...this.props}/>
 					<br/>
+					{/*<div className="container">
+						<img src='https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/envelope-example.jpg'/>
+					</div>*/}
 					<div className="btn-group btn-group-lg float-right">
 						<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 						<button onClick={this.props.nextStep} className="btn btn-success">Continue to Payment</button>

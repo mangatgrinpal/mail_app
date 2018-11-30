@@ -211,7 +211,7 @@ class App extends React.Component {
 	}
 
 	newLetter() {
-		this.setState(this.initialState)
+		this.setState(this.initialState, ()=>{this.setState({view: this.state.view += 1})})
 	}
 
 	cancel(e) {

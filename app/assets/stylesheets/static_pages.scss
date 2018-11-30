@@ -216,12 +216,35 @@
 }
 
 .about-section-wrapper {
-  padding: 100px 0px;
-  .about-section-founder {
-    padding-top: 100px;
-    .founder-pic {
-      background-image: url("http://lavoiepllc.com/wp-content/uploads/2017/04/Mr._Potato_Head.png");
-      height: 200px;
+  padding-top: 60px;
+  .about-section-description {
+    padding-bottom: 50px;
+  }
+  .the-team {
+    background-color: #f8f9fa;
+
+    .about-section-founder {
+      margin-top: 20px;
+      padding-top: 10%;
+
+      .ginny-section {
+        padding: 40px 0px;
+        
+
+        // formatting for founders below, remove from nesting later to apply it to other founder(s)
+        .founder-pic {
+          padding: 10px 15px;
+          img {
+            width: 70%;
+            border-radius: 50%;
+          }
+        }
+
+        .founder-desc {
+          padding: 10px 15px;
+          h6 { color: grey; }
+        }
+      }
     }
   }
 }
