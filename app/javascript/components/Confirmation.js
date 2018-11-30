@@ -3,7 +3,7 @@ import React from "react"
 class Confirmation extends React.Component {
 	constructor(props) {
 		super(props);
-		this.createAccount = this.createAccount.bind(this)
+		//this.createAccount = this.createAccount.bind(this)
 	}
 
 
@@ -48,7 +48,6 @@ class Confirmation extends React.Component {
 					<p>A copy of your receipt has been sent to {this.props.email}.</p>
 					<br/>
 					<button onClick={this.props.newLetter} className="btn btn-success btn-lg">Send another?</button>
-					<button className="btn btn-primary btn-lg">Close </button>
 				</div>
 			</div>
 		)
