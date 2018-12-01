@@ -38,7 +38,7 @@ class App extends React.Component {
 
 		return {
 			button: true,
-			view: 2,
+			view: 1,
 			message: '',
 			email: '',
 			to: Object.assign({}, details),
