@@ -37,18 +37,18 @@ class AppDescription extends React.Component {
 				<div className="row step1">
 					
 					<div id="google-maps-desc" className="col-md-6 center">
-						<p>Enter your destination and return address accurately with address search powered by Google maps.</p>
+						<p>Enter your destination to retrieve address accurately with search powered by Google maps.</p>
 					</div>
 					<div className="col-md-4 offset-md-1">
 						<img id="google-maps" src="https://i2.wp.com/www.henleyshappytrails.com/wp-content/uploads/2017/03/Google-Maps.png?resize=640%2C445"/>
 					</div>
 				</div>
-				<div className="row step2">
+				<div className="row step2 bg-light">
 					<div className="col-md-6 center">
 						<i id="envelope-pic" className="far fa-7x fa-envelope"/>
 					</div>
 					<div id="envelope-desc" className="col-md-6 center">
-						<p>Compose your message, you'll get a chance to review it before submitting.</p>
+						<p>Then begin composing your message, you'll get a chance to review it before submitting.</p>
 					</div>
 					
 				</div>
@@ -61,7 +61,7 @@ class AppDescription extends React.Component {
 						<img id="stripe-logo" src="https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/Stripe-Logo-(blue).png"/>
 					</div>
 				</div>
-				<div className="row step4">
+				<div className="row step4 bg-light">
 					
 					<div className="col-md-6 center">
 						<i id="paper-plane" className="far fa-7x fa-paper-plane"/>

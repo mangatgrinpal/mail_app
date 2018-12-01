@@ -38,7 +38,7 @@ class App extends React.Component {
 
 		return {
 			button: true,
-			view: 1,
+			view: 2,
 			message: '',
 			email: '',
 			to: Object.assign({}, details),
@@ -216,10 +216,9 @@ class App extends React.Component {
 
 	cancel(e) {
 		e.preventDefault()
-		var answer = confirm("Are you sure?");
-		if (answer == true) {
-			this.setState(this.initialState)
-		}
+		
+		this.setState(this.initialState)
+		
 		window.scrollTo(0, 0);
 	}
 
@@ -236,7 +235,9 @@ class App extends React.Component {
 				<div className="row main-content">
 					{this.renderView()}
 				</div>
+				<div className="row">
 				{description}
+				</div>
 			</div>
 		)
 	}

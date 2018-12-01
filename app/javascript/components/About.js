@@ -24,7 +24,7 @@ class About extends React.Component {
 							<p>Your messages will be printed, enveloped, stamped, and on their way with just a few clicks.</p>
 						</div>
 						<br/>
-						<div className="row the-team">
+						<div className="row the-team bg-light">
 							<div className="col-md-6 offset-md-3 about-section-founder">
 								<h2 className="center">The Team</h2>
 									<br/>
