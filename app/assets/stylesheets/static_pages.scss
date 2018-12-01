@@ -2,67 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-content {
-  //makes div height equal to viewport height so all pages will span height of viewport
-  height: 94vh;
-}
+//makes div height equal to viewport height so all pages will span height of viewport
+.main-content { height: 95vh; }
 
 .home {
   color: #fff;
-  p { padding-top: 15px; }
+  p { padding-top: 4%; }
   button { 
     font-size: 2rem;
-    padding: 35px 80px;
+    padding: 8% 19%;
     border-radius: 60px;
   }
-  
-  
-  padding-top: 150px;
+  padding-top: 12%;
   background-image: url('https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/dark_home_resize.jpeg');
   background-size: cover;
   background-attachment: fixed;
   .mission {
-    h1 {
-      text-shadow: 2px 2px black;
-    }
+    h1 { text-shadow: 2px 2px black; }
   }
-  .get-started {
-    padding: 236px 0px 0px 0px;
-  }
+  .get-started { padding: 19% 0px 0px 0px; }
 }
 
-.modal-body {
-  color: #000;
-}
-
-#card-errors {
-  color: #fa755a;
-  //div height for text to fill upon error(s)
-  height: 1rem;
-}
-
-
-
-#sign-up-form {
-  width: 450px;
-  color: #fff;
-}
-
+// this section is the description below home hero image
 .section2 {
-  height: 1600px;
-  padding: 100px 0px;
+
   button { 
     font-size: 2rem;
-    padding: 35px 80px;
-    border-radius: 60px;
+    padding: 10% 9%;
+    border-radius: 30px;
   }
   .step1,.step2,.step3,.step4 {
-    height: 600px;
+    // divs will be a function of the viewport height, good for mobile
+    height: 80vh;
+    padding: 25% 0%;
+
     p {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     img {
-      height:200px;
+      width: 100%;
+      // negative margin-top fixes alignment with text for desktop view
+      margin-top: -12%;
       position: relative;
     }
     i {
@@ -70,33 +50,38 @@
       position: relative;
     }
     #google-maps {
-      height: 300px
+      //width: 74%;
     }
     #google-maps-desc {
-      padding: 75px 120px 0px 0px;
+      padding: 0% 2%;
       
-      animation-name: fade-in;
-      animation-duration: 3s;
+      // animation-name: fade-in;
+      // animation-duration: 3s;
     }
 
-    @keyframes fade-in {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
+    // @keyframes fade-in {
+    //   from {opacity: 0;}
+    //   to {opacity: 1;}
+    // }
 
     #envelope-desc {
-      padding: 25px 0px 0px 100px;
-      animation-name: fade-in;
-      animation-duration: 3s;
+      padding: 0% 5%;
+      // animation-name: fade-in;
+      // animation-duration: 3s;
     }
     #stripe-desc {
-      padding: 20px 125px 0px 65px;
-      animation-name: fade-in;
-      animation-duration: 3s;
+      padding: 0% 7%;
+      // animation-name: fade-in;
+      // animation-duration: 3s;
     }
     #plane-desc {
-      padding: 0px 0px 0px 100px;
+      padding: 0% 4%;
     }
+  }
+
+  .step5 {
+    height: 40vh;
+    padding-top: 10%;
   }
 }
 
@@ -202,6 +187,19 @@
   .payment-buttons {
     float:right;
   }  
+}
+
+#card-errors {
+  color: #fa755a;
+  //div height for text to fill upon error(s)
+  height: 1rem;
+}
+
+
+
+#sign-up-form {
+  width: 450px;
+  color: #fff;
 }
 
 .confirmation {
