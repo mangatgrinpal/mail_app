@@ -15,7 +15,7 @@ class LetterPreview extends React.Component {
 	render() {
 		return (
 			<div id="preview" className="container-fluid">
-				<div className="row justify-content-start">
+				{/*<div className="row justify-content-start">
 					<div className="col-md-4 text-left">
 						{this.props.from.first_name} {this.props.from.last_name}
 					</div>
@@ -46,7 +46,7 @@ class LetterPreview extends React.Component {
 						{this.props.to.city}, {this.props.to.state} {this.props.to.zip}
 					</div>
 				</div>
-				<br/>
+				<br/>*/}
 				<div className="row justify-content-start">
 					<div id="letter-content" className="col-md-12" />
 						

@@ -11,8 +11,9 @@ class LetterForm extends React.Component {
 		ClassicEditor.create(document.getElementById('editor'), {
 			toolbar: ['Heading','bold','italic','bulletedList','numberedList']
 		}).then( (editor) => {
-
 			
+			editor.setData(this.props.message)
+
       editor.model.document.on('change', () => {
 				self.props.setMessageState(editor.getData())
 				self.props.handleContinueButtonChange();
@@ -32,9 +33,6 @@ class LetterForm extends React.Component {
 			return (jQuery(self.props.message).text().split('').length)
 		}
 	}
-
-	
-
 
 
 	render() {
