@@ -91,8 +91,8 @@ class InfoForm extends React.Component {
 		var destination, origin, backButton, continueButton;
 		if (this.props.view === 2) {
 			destination = 
-				<div className="col-md-4 offset-md-1 address-question center">
-					<h3>Where is this going?</h3>
+				<div className="col-md-4 offset-md-1 address-question center align-self-center">
+					<h3>First, where is this going?</h3>
 				</div>
 			backButton =
 			<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>	
@@ -103,8 +103,8 @@ class InfoForm extends React.Component {
 		}
 		if (this.props.view === 3) {
 			origin =
-				<div className="col-md-4 offset-md-1 address-question center">
-					<h3>What's your address?</h3>
+				<div className="col-md-4 offset-md-1 address-question center align-self-center">
+					<h3>Now, what's your address?</h3>
 				</div>
 		} else {
 			origin = <div/>
@@ -114,133 +114,86 @@ class InfoForm extends React.Component {
 		
 		return (
 
-			
-				<div className="col-12 address-page">
-				<form autoComplete="off">
-					
-					<div className="row">
-						{destination}
-						<div className="col-md-4 offset-md-1 address-form">
-							<div className="form-row">
-								<div className="form-group col-md-6">
-									<label>First Name<sup>*</sup></label>
-									<input
+				<div className="col-12 address-page background-settings">
+					<form autoComplete="off">
+						
+						<div className="row">
+							{destination}
+							{origin}
+							<div className="col-md-4 offset-md-1 address-form">
+								<div className="form-row">
+									<div className="form-group col-md-6">
+										<label>First Name<sup>*</sup></label>
+										<input
+											autoComplete="nope"
+											type="text"
+											id="first_name"
+											name="first_name"
+											className="form-control"
+											value={this.props.address.first_name}
+											onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
+									</div>
+									<div className="form-group col-md-6">
+										<label>Last Name<sup>*</sup></label>
+										<input
+											autoComplete="nope"
+											type="text"
+											id="last_name"
+											name="last_name"
+											className="form-control"
+											value={this.props.address.last_name}
+											onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
+									</div>
+								</div>
+								<div className="form-group">
+									<label>Address <sup>*</sup></label>
+									<input 
 										autoComplete="nope"
-										type="text"
-										id="first_name"
-										name="first_name"
-										className="form-control"
-										value={this.props.address.first_name}
+										id="autocomplete" 
+										name="autocomplete" 
+										type="text" 
+										className="form-control" 
 										onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 								</div>
-								<div className="form-group col-md-6">
-									<label>Last Name<sup>*</sup></label>
+								<div className="form-group">
+									<label>Address Line 2 <sup>(optional)</sup></label>
 									<input
 										autoComplete="nope"
+										id="route"
 										type="text"
-										id="last_name"
-										name="last_name"
+										name="address2"
 										className="form-control"
-										value={this.props.address.last_name}
-										onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
+										value={this.props.address.address2}
+										onChange={this.props.handleInputChange}
+										placeholder="Apartment, Suite, etc." />
+								</div>
+								<div className="form-row justify-content-end">
+									<div className="form-group col-md-3">
+										<label>Zip Code<sup>*</sup></label>
+										<input
+											disabled={true}
+											id="postal_code"
+											type="text"
+											name="zip"
+											className="form-control"
+											value={this.props.address.zip} />
+									</div>
+								</div>
+								<div className="row justify-content-end">
+									<div className="col-4">
+										<sup>* = required field</sup>
+									</div>
+								</div>
+								<div className="btn-group btn-group-lg float-right">
+									{backButton}
+									<button disabled={this.props.button} 
+													onClick={this.props.nextStep} 
+													className="btn btn-success">Continue</button>
+									
 								</div>
 							</div>
-							<div className="form-group">
-								<label>Please enter address to autofill the fields below</label>
-								<input 
-									autoComplete="nope"
-									id="autocomplete" 
-									name="autocomplete" 
-									type="text" 
-									className="form-control" 
-									onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
-							</div>
-							<br/>
-							<br/>
-							<div className="form-group">
-								<label>Address Line 1<sup>*</sup></label>
-								<input
-									disabled={true}
-									id="street_number"
-									type="text"
-									name="address1"
-									className="form-control"
-									value={this.props.address.address1}
-									placeholder="Street Address" />
-							</div>
-							<div className="form-group">
-								<label>Address Line 2 <sup>(optional)</sup></label>
-								<input
-									autoComplete="nope"
-									id="route"
-									type="text"
-									name="address2"
-									className="form-control"
-									value={this.props.address.address2}
-									onChange={this.props.handleInputChange}
-									placeholder="Apartment, Suite, etc." />
-							</div>
-							<div className="form-row">
-								<div className="form-group col-md-6">
-									<label>City<sup>*</sup></label>
-									<input
-										disabled={true}
-										id="locality"
-										type="text"
-										name="city"
-										className="form-control"
-										value={this.props.address.city} />
-								</div>
-								<div className="form-group col-md-3">
-									<label>State<sup>*</sup></label>
-									<input
-										disabled={true}
-										id="administrative_area_level_1"
-										type="text"
-										name="state"
-										className="form-control"
-										value={this.props.address.state} />
-								</div>
-								<div className="form-group col-md-3">
-									<label>Zip Code<sup>*</sup></label>
-									<input
-										disabled={true}
-										id="postal_code"
-										type="text"
-										name="zip"
-										className="form-control"
-										value={this.props.address.zip} />
-								</div>
-							</div>
-							<br/>
-							<div className="float-right">
-								<sup>* = required field</sup>
-							</div>
-							<br/>
-							<div className="btn-group btn-group-lg float-right">
-								{backButton}
-								<button disabled={this.props.button} onClick={this.props.nextStep} className="btn btn-success">Continue</button>
-								
-							</div>
-							<br/>
-							<br/>
 						</div>
-						{origin}
-					</div>
 					</form>
-					{/*<div className="modal fade" id="alertModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-					  <div className="modal-dialog modal-dialog-centered" role="document">
-					    <div className="modal-content">
-				
-					      <div className="modal-body">
-					        <h4>Please fill all required fields.</h4>
-					      </div>
-					      <div className="modal-footer">
-					        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-					      </div>
-					    </div>
-					  </div>
-					</div>*/}
 				</div>
 			
 		)
