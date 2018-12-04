@@ -6,7 +6,7 @@
 html { height: 100%;}
 
 //makes div height equal to viewport height so all pages will span height of viewport
-.main-content { height: 97vh; }
+.main-content { height: 100vh; }
 
 .background-settings {
   background-color: #6D8182;
@@ -118,6 +118,7 @@ html { height: 100%;}
   }
 
   .address-form {
+    padding-top: 5%;
     label {
       font-size: 0.75rem;
     }
@@ -159,6 +160,16 @@ html { height: 100%;}
 
 .payment-page {
   color: white;
+  padding: 0% 0%;
+
+  .envelope-preview {
+    background-image: url('https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/envelope-example.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 13rem;
+    color: #000;
+  }
+  
   .product-info {
     span {
       font-weight: 200

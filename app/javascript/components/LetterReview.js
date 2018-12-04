@@ -17,9 +17,10 @@ class LetterReview extends React.Component {
 					<br/>
 					<LetterPreview {...this.props}/>
 					<br/>
+					
 					<div className="btn-group btn-group-lg float-right">
 						<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
-						<button onClick={this.props.nextStep} className="btn btn-success">Continue to Payment</button>
+						<button onClick={this.props.nextStep} className="btn btn-success">Continue</button>
 					</div>
 					<br/>
 					<br/>

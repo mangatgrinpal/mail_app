@@ -155,19 +155,20 @@ class InfoForm extends React.Component {
 										className="form-control" 
 										onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 								</div>
-								<div className="form-group">
-									<label>Address Line 2 <sup>(optional)</sup></label>
-									<input
-										autoComplete="nope"
-										id="route"
-										type="text"
-										name="address2"
-										className="form-control"
-										value={this.props.address.address2}
-										onChange={this.props.handleInputChange}
-										placeholder="Apartment, Suite, etc." />
-								</div>
+								
 								<div className="form-row justify-content-end">
+									<div className="form-group col-md-9">
+										<label>Address Line 2 <sup>(optional)</sup></label>
+										<input
+											autoComplete="nope"
+											id="route"
+											type="text"
+											name="address2"
+											className="form-control"
+											value={this.props.address.address2}
+											onChange={this.props.handleInputChange}
+											placeholder="Apartment, Suite, etc." />
+									</div>
 									<div className="form-group col-md-3">
 										<label>Zip Code<sup>*</sup></label>
 										<input

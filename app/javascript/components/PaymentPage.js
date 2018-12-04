@@ -94,13 +94,48 @@ class PaymentPage extends React.Component {
 				<div className="col-md-8 offset-md-2">
 				<br/>
 				<br/>
-				<div className="row justify-contents-between">
-
-					<div className="col-md-6 product-info">
-					<h3>1 <span><sup>x</sup></span> Letter</h3>
+				<div className="col-md-6 offset-md-3 envelope-preview">
+					<div className="row justify-content-start">
+						<div className="col-md-12 text-left">
+							{this.props.from.first_name} {this.props.from.last_name}
+						</div>
 					</div>
-					<div className="col-md-6 price-info">
-					<h3>Total: $3.99</h3>
+					<div className="row justify-content-start">
+						<div className="col-md-12 text-left">
+							{this.props.from.address1} {this.props.from.address2}
+						</div>
+					</div>
+					<div className="row justify-content-start">
+						<div className="col-md-12 text-left">
+							{this.props.from.city}, {this.props.from.state} {this.props.from.zip}
+						</div>
+					</div>
+					<br/>
+					<div className="row justify-content-start">
+						<div className="col-md-12 text-right">
+							{this.props.to.first_name} {this.props.to.last_name}
+						</div>
+					</div>
+					<div className="row justify-content-start">
+						<div className="col-md-12 text-right">
+							{this.props.to.address1} {this.props.to.address2}
+						</div>
+					</div>
+					<div className="row justify-content-start">
+						<div className="col-md-12 text-right">
+							{this.props.to.city}, {this.props.to.state} {this.props.to.zip}
+						</div>
+					</div>
+					<br/>
+				</div>
+				<br/>
+				<div className="row justify-contents-between">
+					<br/>
+					<div className="col-6 product-info">
+					<h4>1 <span><sup>x</sup></span> Letter</h4>
+					</div>
+					<div className="col-6 price-info">
+					<h4>Total: $3.99</h4>
 					</div>
 				</div>
 				<br/>
