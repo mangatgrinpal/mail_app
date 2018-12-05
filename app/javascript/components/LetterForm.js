@@ -4,6 +4,7 @@ import LetterPreview from "./LetterPreview"
 class LetterForm extends React.Component {
 	constructor(props) {
 		super(props);
+		this.countCharacters = this.countCharacters.bind(this)
 	}
 
 	componentDidMount() {
@@ -12,10 +13,11 @@ class LetterForm extends React.Component {
 			toolbar: ['Heading','bold','italic','bulletedList','numberedList']
 		}).then( (editor) => {
 			
-			editor.setData(this.props.message)
-
+			editor.setData(self.props.message)
+			
       editor.model.document.on('change', () => {
 				self.props.setMessageState(editor.getData())
+				self.countCharacters();
 				self.props.handleContinueButtonChange();
 			});
     })
@@ -26,11 +28,26 @@ class LetterForm extends React.Component {
 
 	countCharacters() {
 		//counts characters in message
-		var self = this;
-		if (self.props.message === "<p>&nbsp;</p>") {
+		let text = $(this.props.message).text()
+		
+		if (text.trim() == "") {
 			return (0)
 		} else {
-			return (jQuery(self.props.message).text().split('').length)
+			return (text.split('').length)
+		}
+	}
+
+	characterWarning() {
+		if (this.countCharacters() > 3000) {
+			return (
+				<div className="message-length-error">
+					<span style={{color: 'red'}}>Please reduce message length.</span>
+				</div>
+			)
+		} else {
+			return (
+				<div className="message-length-error" />
+			)
 		}
 	}
 
@@ -51,9 +68,9 @@ class LetterForm extends React.Component {
 								name="message" />
 						</div>
 					</form>
-					<p style={{color: 'white'}}>Characters used: {this.countCharacters()} / 3000</p>
+					<span style={{color: 'white'}}>Characters used: {this.countCharacters()} / 3000 {this.characterWarning()}</span>
 					{/*<button onClick={this.props.clearMessage} className="btn btn-primary">Clear Message</button>*/}
-					
+					<br/>
 					<div className="btn-group btn-group-lg float-right">
 						<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 						<button disabled={this.props.button} onClick={this.props.nextStep} className="btn btn-success">Review Letter</button>

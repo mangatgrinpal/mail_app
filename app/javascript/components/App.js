@@ -99,9 +99,10 @@ class App extends React.Component {
 		
 		} else if (this.state.view == 4) {
 
-			let stuff = this.state.message
+			let text = $(this.state.message).text()
+			let textLength = text.split('').length
 			
-			if (stuff == "" || stuff == "<p>&nbsp;</p>") {
+			if (text.trim() == "" || textLength > 3000) {
 				button = true;
 				
 			} else {

@@ -2,6 +2,7 @@
 SitemapGenerator::Sitemap.default_host = "https://www.snailmailnow.org"
 
 SitemapGenerator::Sitemap.create do
+  add '/about'
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.
