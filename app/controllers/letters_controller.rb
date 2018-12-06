@@ -6,7 +6,7 @@ class LettersController < ApplicationController
 			@to_address = Address.create!(to_params)
 			@from_address = Address.create!(from_params)
 			@letter.save!
-			@letter.letter_details.create!(to_address: @to_address, from_address: @from_address)
+			@letter.letter_details.create!(to_address: @to_address, from_address: @from_address, email: params[:receiptEmail])
 
 			token = params[:stripeToken]
 			charge = Stripe::Charge.create({

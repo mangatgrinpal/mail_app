@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_020232) do
+ActiveRecord::Schema.define(version: 2018_12_06_004621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2018_10_06_020232) do
     t.integer "letter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.index ["email"], name: "index_letter_details_on_email"
     t.index ["from_address_id"], name: "index_letter_details_on_from_address_id"
     t.index ["letter_id"], name: "index_letter_details_on_letter_id"
     t.index ["to_address_id"], name: "index_letter_details_on_to_address_id"
