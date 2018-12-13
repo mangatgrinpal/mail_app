@@ -178,6 +178,7 @@ class InfoForm extends React.Component {
 											id="postal_code"
 											type="text"
 											name="zip"
+											placeholder="Zip"
 											className="form-control"
 											value={this.props.address.zip} />
 									</div>
