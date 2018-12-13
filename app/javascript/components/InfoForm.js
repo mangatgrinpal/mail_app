@@ -129,6 +129,7 @@ class InfoForm extends React.Component {
 											type="text"
 											id="first_name"
 											name="first_name"
+											placeholder="First Name"
 											className="form-control"
 											value={this.props.address.first_name}
 											onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
@@ -140,6 +141,7 @@ class InfoForm extends React.Component {
 											type="text"
 											id="last_name"
 											name="last_name"
+											placeholder="Last Name"
 											className="form-control"
 											value={this.props.address.last_name}
 											onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
