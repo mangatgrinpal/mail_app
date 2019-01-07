@@ -6,29 +6,7 @@ class AppDescription extends React.Component {
 	}
 
 	componentDidMount() {
-		// $(window).scroll(()=> {
-		// 	if ($(window).scrollTop() > 470) {
-		// 		$('#google-maps').fadeIn(500).animate({
-		// 			height: '300px'
-		// 		},800);
-		// 	}
-				
-		// 	if ($(window).scrollTop() > 1100) {
-		// 		$('#envelope-pic').fadeIn(500).animate({
-		// 			left: '100px'
-		// 		},800);
-		// 	}
-		// 	if ($(window).scrollTop() > 1600) {
-		// 		$('#stripe-logo').fadeIn(500).animate({
-		// 			left: '100px'
-		// 		},1000);
-		// 	}
-		// 	if ($(window).scrollTop() > 2200) {
-		// 		$('#paper-plane').fadeIn(500).animate({
-		// 			left: '150px'
-		// 		},1000);
-		// 	}
-		// })
+		
 	}
 
 	render() {

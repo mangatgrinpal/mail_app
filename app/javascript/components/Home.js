@@ -5,6 +5,33 @@ class Home extends React.Component {
 		super(props);
 	}
 
+	componentDidMount() {
+		
+		$(document).ready(()=> {
+			$('.mission h1').fadeIn(500);
+			setTimeout(()=> {
+				$('.mission p:first').fadeIn(1000);
+			},1000)
+			setTimeout(()=> {
+				$('.mission p:nth-of-type(2)').fadeIn(1000);
+			},2000)
+			setTimeout(()=> {
+				$('.mission p:last').fadeIn(1000);
+			},3000)
+			setTimeout(()=> {
+			$('.get-started').fadeIn(1000);
+		},3500)
+		})
+		
+	}
+
+	componentWillUnmount() {
+		let missionText = document.querySelector('.mission')
+		let getStartedButton = document.querySelector('.get-started')
+		missionText.className -= (' fade-in')
+		getStartedButton.className -= (' fade-in')
+	}
+
 	render () {
 		return (
 			<div className="col-md-12 home">

@@ -6,6 +6,13 @@ class InfoForm extends React.Component {
 	}
 
 	componentDidMount() {
+		// $(document).ready(()=> {
+		// 	$('#begin-question').fadeIn(500);
+		// 	setTimeout(()=> {
+		// 		$('#end-question').fadeIn(1000);
+		// 	},1000)
+		// })
+		
 		var self = this;
 		var placeSearch, autocomplete;
 		var componentForm = {
@@ -84,6 +91,7 @@ class InfoForm extends React.Component {
         attributes: true,
         attributeFilter: ['autocomplete']
     });
+
 	}
 
 
@@ -92,7 +100,7 @@ class InfoForm extends React.Component {
 		if (this.props.view === 2) {
 			destination = 
 				<div className="col-md-4 offset-md-1 address-question center align-self-center">
-					<h3>First, where is this going?</h3>
+					<h3><span id='begin-question'>First,</span><span id='end-question'> where is this going?</span></h3>
 				</div>
 			backButton =
 			<button onClick={this.props.cancel} className="btn btn-danger">Cancel</button>	
@@ -104,7 +112,7 @@ class InfoForm extends React.Component {
 		if (this.props.view === 3) {
 			origin =
 				<div className="col-md-4 offset-md-1 address-question center align-self-center">
-					<h3>Now, what's your address?</h3>
+					<h3><span id='begin-question'>Now,</span><span id='end-question'> what's your address?</span></h3>
 				</div>
 		} else {
 			origin = <div/>

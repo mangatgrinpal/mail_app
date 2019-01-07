@@ -93,7 +93,7 @@ class PaymentPage extends React.Component {
 			<div className="col-md-12 payment-page background-settings">
 				<div className="col-md-8 offset-md-2">
 				<br/>
-				<br/>
+				
 				<div className="col-md-6 offset-md-3 envelope-preview">
 					<div className="row justify-content-start">
 						<div className="col-md-12 text-left">
@@ -128,7 +128,7 @@ class PaymentPage extends React.Component {
 					</div>
 					<br/>
 				</div>
-				<br/>
+				
 				<div className="row justify-contents-between">
 					<br/>
 					<div className="col-6 product-info">
@@ -138,7 +138,7 @@ class PaymentPage extends React.Component {
 					<h4>Total: $3.99</h4>
 					</div>
 				</div>
-				<br/>
+				
 				<hr/>
 					<form id="payment-form">
 					  <div className="form-row">
@@ -153,7 +153,7 @@ class PaymentPage extends React.Component {
 					    	<br/>
 					  	</div>
 					  </div>
-					  <br/>
+					  
 					  <div className="form-group">
 					  	<label>
 				    		<h3>Email <span>(for your receipt)</span></h3>
@@ -168,9 +168,9 @@ class PaymentPage extends React.Component {
 				    	</div>
 					  </div>
 					  <br/>
-					 
+					
 					</form>
-					<div className="btn-group btn-group-lg payment-buttons">
+					<div className="btn-group btn-group-lg payment-buttons float-right">
 						<button onClick={this.props.goBack} className="btn btn-danger">Go Back</button>
 						<button onClick={this.submitPayment} className="btn btn-success">Submit Payment</button>
 					</div>	

@@ -27,10 +27,23 @@ html { height: 100%;}
   background-image: url('https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/dark_home_resize.jpeg');
   background-size: cover;
   background-attachment: fixed;
+  //mission section over hero image
   .mission {
-    h1 { text-shadow: 2px 2px black; }
+    h1 { 
+      text-shadow: 2px 2px black;
+      display: none;
+    }
+
+    p { display: none; }
+    
   }
-  .get-started { padding: 19% 0% 0% 0%; }
+  
+  // main get started button on hero image
+  .get-started { 
+    padding: 19% 0% 0% 0%;
+    display: none;
+  }
+
 }
 //mobile hero image
 @media only screen and (max-device-width: 420px) {
@@ -38,6 +51,13 @@ html { height: 100%;}
     background-image: url('https://s3-us-west-1.amazonaws.com/ginnysbucket/dev-images/dark_home_mobile.jpeg');
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  //mobile app description section
+  .section2 {
+    .step1,.step2,.step3,.step4 {
+      height: 80vh;
+      padding: 25% 0%;
+    }
   }
 }
 
@@ -51,8 +71,8 @@ html { height: 100%;}
   }
   .step1,.step2,.step3,.step4 {
     // divs will be a function of the viewport height, good for mobile
-    height: 80vh;
-    padding: 25% 0%;
+    height: 550px;
+    padding: 18% 0%;
 
     p {
       font-size: 1.5rem;
@@ -60,25 +80,30 @@ html { height: 100%;}
     img {
       width: 100%;
       position: relative;
+      //moves images up in their columns to better align with text on desktop view
+      margin-top:-18%;
     }
     i {
       font-size: 10rem;
       position: relative;
     }
-    #google-maps {
-      //width: 74%;
+    #google-maps.fade-in {
+      animation: fade-in 5s;
     }
     #google-maps-desc {
       padding: 0% 2%;
-      
-      // animation-name: fade-in;
-      // animation-duration: 3s;
     }
 
-    // @keyframes fade-in {
-    //   from {opacity: 0;}
-    //   to {opacity: 1;}
-    // }
+    #google-maps-desc.fade-in {
+      animation: fade-in 3s;
+    }
+
+    
+
+    @keyframes fade-in {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
 
     #envelope-desc {
       padding: 0% 7%;
@@ -112,7 +137,11 @@ html { height: 100%;}
     h3 {
     font-size: 2.5rem;
     text-shadow: 2px 2px black;
+
     }
+
+    #begin-question { display: none; }
+    #end-question { display:none ; }
   }
 
   .address-form {
@@ -216,9 +245,9 @@ html { height: 100%;}
     width: 100%;
   }
   // positions payment buttons to end where input field does
-  .payment-buttons {
-    float:right;
-  }  
+  // .payment-buttons {
+  //   float:right;
+  // }  
 }
 
 #card-errors {

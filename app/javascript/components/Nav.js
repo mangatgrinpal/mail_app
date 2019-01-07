@@ -33,9 +33,11 @@ class Nav extends React.Component {
 				
 				<div className="collapse navbar-collapse" id="navbarToggler">
 				  <ul className="navbar-nav ml-auto">
+				  	{/*<li className="nav-item">
+				  		<button className="btn btn-outline-primary">Demo</button>
+				  	</li>*/}
 				  	<li className={homeButtonStyle}>
 				  		<a className="nav-link" href="/">Home</a>
-							
 						</li>
 						<li className={aboutButtonStyle}>
 							<a className="nav-link" href="/about">About</a>
