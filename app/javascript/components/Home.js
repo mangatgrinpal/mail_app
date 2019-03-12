@@ -25,13 +25,6 @@ class Home extends React.Component {
 		
 	}
 
-	componentWillUnmount() {
-		let missionText = document.querySelector('.mission')
-		let getStartedButton = document.querySelector('.get-started')
-		missionText.className -= (' fade-in')
-		getStartedButton.className -= (' fade-in')
-	}
-
 	render () {
 		return (
 			<div className="col-md-12 home">

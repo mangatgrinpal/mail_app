@@ -23,6 +23,7 @@ class App extends React.Component {
 		//react docs suggest binding for performance
 		this.handleInputChange = this.handleInputChange.bind(this)
 		this.handleContinueButtonChange = this.handleContinueButtonChange.bind(this)
+		this.handleKeyPress = this.handleKeyPress.bind(this)
 	}
 
 	initialState() {
@@ -65,6 +66,12 @@ class App extends React.Component {
 			this.setState({
 				[name]: value
 			});
+		}
+	}
+
+	handleKeyPress(e) {
+		if (e.key == "Enter") {
+			e.preventDefault();
 		}
 	}
 
@@ -173,7 +180,8 @@ class App extends React.Component {
 				formChecker={this.formChecker}
 				stripeKey={this.props.stripeKey}
 				handleContinueButtonChange={this.handleContinueButtonChange}
-				handleInputChange={this.handleInputChange}/>
+				handleInputChange={this.handleInputChange}
+				handleKeyPress={this.handleKeyPress}/>
 		)
 	}
 

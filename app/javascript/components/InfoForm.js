@@ -12,6 +12,8 @@ class InfoForm extends React.Component {
 		// 		$('#end-question').fadeIn(1000);
 		// 	},1000)
 		// })
+
+		
 		
 		var self = this;
 		var placeSearch, autocomplete;
@@ -30,11 +32,18 @@ class InfoForm extends React.Component {
 	      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
 	      {types: ['geocode'], componentRestrictions: {country: 'us'}});
 	  //componentRestrictions limits country to US
-
+	  console.log(autocomplete)
 	  // When the user selects an address from the dropdown, populate the address
 	  // fields in the form.
 	  autocomplete.addListener('place_changed', fillInAddress);
-	
+		
+		// var input = document.getElementById('autocomplete');
+	 //  autocomplete.addListener(input, 'keydown', function(event) { 
+	 //    if (event.keyCode === 13) { 
+	 //        event.preventDefault(); 
+	 //    }
+	 //  }); 
+
 		function fillInAddress() {
 			
 		  // Get the place details from the autocomplete object.
@@ -65,7 +74,9 @@ class InfoForm extends React.Component {
 		}
 		this.turnOffGoogleAutoComplete();
 		//after autocomplete is mounted
+
 	}
+	
 
 	googleMapsKeys() {
 		return {
@@ -119,6 +130,8 @@ class InfoForm extends React.Component {
 		}
 
 
+
+
 		
 		return (
 
@@ -140,6 +153,7 @@ class InfoForm extends React.Component {
 											placeholder="First Name"
 											className="form-control"
 											value={this.props.address.first_name}
+											onKeyPress={this.props.handleKeyPress}
 											onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 									</div>
 									<div className="form-group col-md-6">
@@ -152,6 +166,7 @@ class InfoForm extends React.Component {
 											placeholder="Last Name"
 											className="form-control"
 											value={this.props.address.last_name}
+											onKeyPress={this.props.handleKeyPress}
 											onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 									</div>
 								</div>
@@ -162,7 +177,8 @@ class InfoForm extends React.Component {
 										id="autocomplete" 
 										name="autocomplete" 
 										type="text" 
-										className="form-control" 
+										className="form-control"
+										onKeyPress={this.props.handleKeyPress}
 										onChange={(e)=>{this.props.handleInputChange(e); this.props.handleContinueButtonChange(e);}} />
 								</div>
 								
@@ -176,6 +192,7 @@ class InfoForm extends React.Component {
 											name="address2"
 											className="form-control"
 											value={this.props.address.address2}
+											onKeyPress={this.props.handleKeyPress}
 											onChange={this.props.handleInputChange}
 											placeholder="Apartment, Suite, etc." />
 									</div>

@@ -54,6 +54,12 @@ class AppDescription extends React.Component {
 						<button onClick={this.props.nextStep} className="btn btn-primary btn-lg">Get Started Now</button>
 					</div>
 				</div>
+				<div className="row">
+					<div className="col-md-6 offset-md-3 center">
+						<h3>Or, try out the demo.</h3>
+						<button className="btn btn-primary btn-lg">Start Demo</button>
+					</div>
+				</div>
 			</div>
 		)
 	}
