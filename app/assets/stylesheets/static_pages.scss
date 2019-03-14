@@ -6,7 +6,7 @@
 html { height: 100%;}
 
 //makes div height equal to viewport height so all pages will span height of viewport
-.main-content { height: 100vh; }
+.main-content { height: 95vh; }
 
 .background-settings {
   background-color: #6D8182;
@@ -80,30 +80,14 @@ html { height: 100%;}
     img {
       width: 100%;
       position: relative;
-      //moves images up in their columns to better align with text on desktop view
-      margin-top:-18%;
+      
     }
     i {
       font-size: 10rem;
       position: relative;
     }
-    #google-maps.fade-in {
-      animation: fade-in 5s;
-    }
-    #google-maps-desc {
-      padding: 0% 2%;
-    }
-
-    #google-maps-desc.fade-in {
-      animation: fade-in 3s;
-    }
-
     
 
-    @keyframes fade-in {
-      0% {opacity: 0;}
-      100% {opacity: 1;}
-    }
 
     #envelope-desc {
       padding: 0% 7%;

@@ -29,7 +29,9 @@ class Home extends React.Component {
 		return (
 			<div className="col-md-12 home">
 				<div className="row">
-					<div className="col-md-4 offset-md-1 mission">
+				<div className="container">
+					<div className="row">
+					<div className="col-md-6 mission">
 						<h1 className="center">What If I Told You Snail Mail Could Be Now Mail?</h1>
 						<br/>
 						<p> Write your letter online, we'll print it, envelope it, and send it for you.</p>
@@ -37,10 +39,13 @@ class Home extends React.Component {
 						<p> All you have to do is type</p>
 						<br/>
 					</div>
-					<div className="col-md-4 offset-md-1 center get-started">
+					<div className="col-md-6 center get-started">
 						<button onClick={this.props.nextStep} className="btn btn-primary btn-lg">Get Started</button>
 					</div>
 				</div>
+				</div>
+				</div>
+
 			</div>		
 		)
 	}
