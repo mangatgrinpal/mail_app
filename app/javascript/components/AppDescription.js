@@ -6,7 +6,71 @@ class AppDescription extends React.Component {
 	}
 
 	componentDidMount() {
-		
+		$(window).scroll(()=> {
+			// mobile view
+			if ($(window).width() <= 500) {
+				
+				// maps section animations
+		    if ($(window).scrollTop() > 280) {
+		    	$('#google-maps-desc').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#google-maps').fadeIn(1000);
+		    	},500)
+		    }
+		    // message section animations
+		    if ($(window).scrollTop() > 875) {
+		    	$('#envelope-pic').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#envelope-desc').fadeIn(1000);
+		    	},500)
+		    }
+		    // stripe section animations
+		    if ($(window).scrollTop() > 1445) {
+		    	$('#stripe-desc').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#stripe-logo').fadeIn(1000);
+		    	},500)
+		    }
+
+		    if ($(window).scrollTop() > 1900) {
+		    	$('#paper-plane').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#plane-desc').fadeIn(1000);
+		    	},500)
+		    }
+		    //desktop view animations
+			} else {
+				
+				// maps section animations
+		    if ($(window).scrollTop() > 350) {
+		    	$('#google-maps-desc').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#google-maps').fadeIn(1000);
+		    	},500)
+		    }
+		    // message section animations
+		    if ($(window).scrollTop() > 950) {
+		    	$('#envelope-desc').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#envelope-pic').fadeIn(1000);
+		    	},500)
+		    }
+		    // stripe section animations
+		    if ($(window).scrollTop() > 1500) {
+		    	$('#stripe-desc').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#stripe-logo').fadeIn(1000);
+		    	},500)
+		    }
+
+		    if ($(window).scrollTop() > 2000) {
+		    	$('#plane-desc').fadeIn(1000);
+		    	setTimeout(()=> {
+		    		$('#paper-plane').fadeIn(1000);
+		    	},500)
+		    }
+			}
+		})
 	}
 
 	render() {
