@@ -135,7 +135,7 @@ class PaymentPage extends React.Component {
 					<h4>1 <span><sup>x</sup></span> Letter</h4>
 					</div>
 					<div className="col-6 price-info">
-					<h4>Total: $3.99</h4>
+					<h4>Total: $1.49</h4>
 					</div>
 				</div>
 				
@@ -161,7 +161,7 @@ class PaymentPage extends React.Component {
 				    	<br/>
 				    	<div className="form-group">
 				    	<input id="receipt-email" 
-				    				type="text" 
+				    				type="email" 
 				    				name="email"
 				    				className="form-control" 
 				    				value={this.props.email} onChange={this.props.handleInputChange} />

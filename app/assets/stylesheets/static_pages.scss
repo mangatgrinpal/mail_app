@@ -6,12 +6,13 @@
 html { height: 100%;}
 
 //makes div height equal to viewport height so all pages will span height of viewport
-.main-content { height: 95vh; }
+.main-content { height: 80vh; }
 
 .background-settings {
   background-color: #6D8182;
   height: 100%;
   padding: 10% 0%;
+  height: 100vh;
 }
 
 //Hero image section
@@ -55,7 +56,7 @@ html { height: 100%;}
   //mobile app description section
   .section2 {
     .step1,.step2,.step3,.step4 {
-      height: 80vh;
+      
       padding: 25% 0%;
     }
   }
@@ -70,7 +71,7 @@ html { height: 100%;}
     border-radius: 30px;
   }
   .step1,.step2,.step3,.step4 {
-    // divs will be a function of the viewport height, good for mobile
+    
     height: 550px;
     padding: 18% 0%;
 
@@ -118,7 +119,6 @@ html { height: 100%;}
   color: #fff;
   
   .address-question {
-
     h3 {
     font-size: 2.5rem;
     text-shadow: 2px 2px black;
@@ -126,10 +126,11 @@ html { height: 100%;}
     }
 
     // #begin-question { display: none; }
-    // #end-question { display:none ; }
+    // #end-question { display: none; }
   }
 
   .address-form {
+    // display: none;
     padding-top: 5%;
     label {
       font-size: 0.75rem;

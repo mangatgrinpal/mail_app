@@ -42,28 +42,28 @@ class AppDescription extends React.Component {
 			} else {
 				
 				// maps section animations
-		    if ($(window).scrollTop() > 350) {
+		    if ($(window).scrollTop() > 230) {
 		    	$('#google-maps-desc').fadeIn(1000);
 		    	setTimeout(()=> {
 		    		$('#google-maps').fadeIn(1000);
 		    	},500)
 		    }
 		    // message section animations
-		    if ($(window).scrollTop() > 950) {
+		    if ($(window).scrollTop() > 780) {
 		    	$('#envelope-desc').fadeIn(1000);
 		    	setTimeout(()=> {
 		    		$('#envelope-pic').fadeIn(1000);
 		    	},500)
 		    }
 		    // stripe section animations
-		    if ($(window).scrollTop() > 1500) {
+		    if ($(window).scrollTop() > 1280) {
 		    	$('#stripe-desc').fadeIn(1000);
 		    	setTimeout(()=> {
 		    		$('#stripe-logo').fadeIn(1000);
 		    	},500)
 		    }
 
-		    if ($(window).scrollTop() > 2000) {
+		    if ($(window).scrollTop() > 1800) {
 		    	$('#plane-desc').fadeIn(1000);
 		    	setTimeout(()=> {
 		    		$('#paper-plane').fadeIn(1000);

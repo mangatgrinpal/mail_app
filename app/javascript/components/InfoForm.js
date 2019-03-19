@@ -5,13 +5,22 @@ class InfoForm extends React.Component {
 		super(props);
 	}
 
+	componentWillUnmount() {
+		// $('.address-form').css("display", "none")
+	}
 	componentDidMount() {
-		// $(document).ready(()=> {
-		// 	$('#begin-question').fadeIn(500);
-		// 	setTimeout(()=> {
-		// 		$('#end-question').fadeIn(1000);
-		// 	},1000)
-		// })
+		// if (this.props.view == 2) {
+		// 	$(document).ready(()=> {
+		// 		$('#begin-question').fadeIn(500);
+		// 		setTimeout(()=> {
+		// 			$('#end-question').fadeIn(1000);
+		// 		},1000)
+		// 		setTimeout(()=> {
+		// 			$('.address-form').fadeIn(1000);
+		// 		},2000)
+		// 	})
+		// }
+		
 
 		
 		
@@ -32,7 +41,6 @@ class InfoForm extends React.Component {
 	      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
 	      {types: ['geocode'], componentRestrictions: {country: 'us'}});
 	  //componentRestrictions limits country to US
-	  console.log(autocomplete)
 	  // When the user selects an address from the dropdown, populate the address
 	  // fields in the form.
 	  autocomplete.addListener('place_changed', fillInAddress);
