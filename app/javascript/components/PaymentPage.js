@@ -5,7 +5,8 @@ class PaymentPage extends React.Component {
 		super(props);
 		this.state = {
 			card: {},
-			stripe: {}
+			stripe: {},
+			loading: false
 		}
 		this.submitPayment = this.submitPayment.bind(this)
 	}
@@ -57,6 +58,7 @@ class PaymentPage extends React.Component {
 
 	submitPayment(e) {
 		e.preventDefault();
+
 		var self = this;
 		if (self.validateEmail(self.props.email)) {
 				self.state.stripe.createToken(self.state.card).then(function(result) {
@@ -65,6 +67,7 @@ class PaymentPage extends React.Component {
 		      var errorElement = document.getElementById('card-errors');
 		      errorElement.textContent = result.error.message;
 		    } else {
+		    	self.setState({loading: true})
 		      // Send the token to your server.
 		      $.ajax("/letters", {
 						dataType: "JSON",
@@ -88,8 +91,18 @@ class PaymentPage extends React.Component {
 	}
 
 	render() {
-
-		return (
+		if (this.state.loading) {
+			return (
+				<div className="col-md-12 payment-page background-settings">
+					<div className="d-flex justify-content-center">
+	          <div className="spinner-border text-light mt-5" role="status">
+						  <span className="sr-only">Loading...</span>
+						</div>
+	        </div>
+				</div>
+			)
+		} else {
+			return (
 			<div className="col-md-12 payment-page background-settings">
 				<div className="col-md-8 offset-md-2">
 				<br/>
@@ -177,6 +190,9 @@ class PaymentPage extends React.Component {
 				</div>
 			</div>
 		)
+		}
+
+		
 	}
 }
 
